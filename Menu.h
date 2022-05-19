@@ -5,7 +5,7 @@
 #ifndef MENU_H
 #define MENU_H
 
-class menu {
+class Menu {
 private:
     int opcion
 public:
