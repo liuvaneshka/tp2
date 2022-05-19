@@ -1,7 +1,7 @@
 //
 // Created by liuvaneshka on 17/05/22.
 //
-#include "cuento.h"
+#include "Cuento.h"
 #include "Lectura.h"
 
 Cuento :: Cuento(string libro) : Lectura(string titulo, Escritor * _autor, int anio, int minutos){
