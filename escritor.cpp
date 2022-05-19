@@ -38,8 +38,44 @@ bool Escritor :: validar_entero_positivo(char anio){
     return numero;
 }
 
+void Escritor :: ingresar_anios_escritor(){
+
+    string respuesta = " ";
+
+    cout<<"Sabe anio de nacimiento? S/s de ser asi, caso contrario presione enter: " << endl;
+    if( (respuesta == "S") || (respuesta == "s")){
+        cout << "introduzca anio nacimiento: ":
+        cin >> anio_nacimiento;
+    }
+    else
+        anio_nacimiento = -1;
+
+    cout<<"Sabe anio de fallecimieto? S/s de ser asi, caso contrario presione enter: " << endl;
+    if( (respuesta == "S") || (respuesta == "s")){
+        cout << "introduzca anio fallecimiento: ":
+        cin >> anio_fallecimiento;
+    }
+}
+
+char* Escritor :: ingresar_escritor(){
+    string anonimo = "";
+    char* arreglo_autor = nullptr;
+    cout<<"El autor es anonimo? S/s de ser asi, caso contrario presione enter: " << endl;
+    if( (anonimo == "S") || (anonimo == "s")){
+        arreglo_autor = nullptr;
+    }
+    else{
+        cout << "Ingrese el nombre y apellido: " << endl;
+        cin >> nombre_apellido;
+        cout << "Ingrese nacionaliad: " << endl;
+        cin >> nacionalidad;
+    }
+}
+
 void Escritor :: modificar_fallecimiento(int nacimiento,int fallecimiento){
     if(validar_entero_positivo(fallecimiento) && (nacimiento < fallecimiento))){
+        cout << "ingrese el anio de fallecimiento" << endl;
+        cin >> fallecimiento;
         anio_fallecimiento = fallecimiento;
     }
 }

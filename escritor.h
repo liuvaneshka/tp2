@@ -40,11 +40,14 @@ public:
     * post : devuelve true si es enetero positivo, de lo contrario false
     */
     bool validar_entero_positivo(char anio);
+    /*post : ingresar datos del escritor
+    */
+    void ingresar_escritor();
     /* pre : fallecimiento es un entero positivo mayor al
      *      nacimiento que es un enetero positivo
     * post : modifica el anio de fallecimiento
     */
-    void modificar_anio_fallecimiento(int nacimiento, int fallecimiento);
+    void modificar_fallecimiento(int nacimiento, int fallecimiento);
     /*
     * post : imprime los atributos del escritor
     */
