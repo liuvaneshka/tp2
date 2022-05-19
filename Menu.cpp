@@ -2,7 +2,7 @@
 // Created by liuvaneshka on 17/05/22.
 //
 #include <iostream>
-#include "menu.h"
+#include "Menu.h"
 
 using namespace std;
 
