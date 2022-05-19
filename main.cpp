@@ -1,7 +1,7 @@
 #include <iostream>
-#include "menu.h"
-#include "escritor.h"
-#include "cuento.h"
+#include "Menu.h"
+#include "Escritor.h"
+#include "Cuento.h"
 
 using namespace  std;
 
