@@ -1,0 +1,3 @@
+
+enum generos {DRAMA, COMEDIA, FICCION, SUSPENSO,
+              TERROR, ROMANTICA, HISTORICA};    // HISTORICA = 6
