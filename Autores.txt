@@ -1,0 +1,54 @@
+(1)
+Julio Cortázar
+argentino
+1914
+1984
+
+(2)
+Mary Shelley
+británica
+1797
+1851
+
+(3)
+Stephen Edwin King
+estadounidense
+1947
+
+(4)
+Alfonsina Storni
+argentina
+-1
+1938
+
+(5)
+Ken Follet
+galés
+1949
+
+(6)
+Jorge Luis Borges
+argentino
+
+(7)
+Ray Bradbury
+estadounidense
+1920
+2012
+
+(8)
+Jaime Sabines
+mexicano
+1926
+1999
+
+(9)
+Victor Hugo
+frances
+-1
+1885
+
+(10)
+Margaret Atwood
+canadiense
+1939
