@@ -1,5 +1,5 @@
 #include <string>
-#include "Escritor.h"
+#include "escritor.h"
 
 using namespace std;
 
