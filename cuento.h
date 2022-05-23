@@ -3,7 +3,7 @@
 //
 #ifndef CUENTO_H
 #define CUENTO_H
-#include "Lectura.h"
+#include "lectura.h"
 
 
 class Cuento : public Lectura{
