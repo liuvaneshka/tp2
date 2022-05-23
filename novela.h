@@ -1,7 +1,6 @@
 #ifndef __NOVELA_H__
 #define __NOVELA_H__
 #include "lectura.h"
-using namespace std;
 
 class Novela : public Lectura {
 

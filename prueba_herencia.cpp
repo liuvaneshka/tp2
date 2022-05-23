@@ -7,6 +7,25 @@
 #include "poema.h"
 using namespace std;
 
+//IMPORTANTE!!!
+/* 1) Cuando con una Lectura pongo obtener_autor() eso devuelve un puntero a autor, entonces luego tuve que hacer -> obtener_nombre()...
+Sería conveniente agregarle un método a Lectura para obtener el nombre directamente? Ya que creo que el nombre va aser algo que se necesite varias veces
+y entonces quizás se puede implemnetra ara al menos hacer mas directos estos llamados que se repiten usualmente*/
+/* 2) Cuando llamo con una lectura a obtener_autor() y este es null se muestra 0x0 -> y si con un null llamo como explico en 2),
+tira segmentation fault, dado que no puede obtener el nombre de algo que ni es un autor, como manejamos este caso? */
+// 3) Puede ser que si implementamos 1) se resuelva 2) ?? Pense algo de este estilo -> lo implementé y FUNCIONA!!:
+/*string Lectura::nombre_autor(){
+    string nombre;
+    if (obtener_autor())
+        nombre = obtener_autor() -> obtener_nombre();
+    else
+        nombre = "Desconocido";
+    return nombre
+}
+*/  // Sin embargo, estaba pensando y se debería hacer con cada atributo de Autor... Como se les ocurre sino solucionarlo?
+
+
+
 int main(){
 
     // Creo algunos escritores
@@ -17,15 +36,19 @@ int main(){
 
     //Muestro los escritores
     autor1.mostrar_escritor();
+    cout << "\n";
     autor2.mostrar_escritor();
+    cout << "\n";
     autor3.mostrar_escritor();
+    cout << "\n";
     autor4.mostrar_escritor();
     cout << "\n";
 
     //Pruebo métodos de escritor
     cout << "Busco nombre de autor1: " << autor1.obtener_nombre() << endl;
     cout << "\n";
-    cout << "Busco nacionalidad de autor2: " << autor3.obtener_nacionalidad() << endl;
+    cout << "Busco nacionalidad de autor2: " << autor2.obtener_nacionalidad() << endl;
+    cout << "\n";
     cout << "Busco nacionalidad de autor4 sin nacionalidad: " << autor4.obtener_nacionalidad() << endl;
     cout << "\n";
     cout << "Busco nacimiento de autor1: " << autor1.obtener_anio_nacimiento() << endl;
@@ -35,12 +58,12 @@ int main(){
     cout << "Busco fallecimiento de autor4: " << autor4.obtener_anio_fallecimiento() << endl;
     cout << "\n";
 
-    // MOdifico el fallecimiento de un escritor y lo imprimo
+    // Modifico el fallecimiento de un escritor y lo imprimo
     autor1.modificar_fallecimiento(2010);
     cout << "El nuevo fallecimiento del autor1 es: " << autor1.obtener_anio_fallecimiento() << endl;
     cout << "\n";
     autor1.mostrar_escritor();
-    cout << "\n";
+    cout << "\n\n";
 
     // Creo novelas historicas
     Novela_historica nh1("El cruce", &autor1, 1950, 3000, "El cruce de los andes de San Martin");
@@ -59,12 +82,12 @@ int main(){
     cout << "\n";
 
 
-    //Pruebo lops metdoos de Novela_historicas y los heredados
-    cout << "Muestro la novela llamada: " << nh1.obtener_titulo() << " cuyo tema es: " << nh1.obtener_tema() << endl;
-    cout << "Muestro la novela de: " << nh2.obtener_autor()->obtener_nombre() << " cuyo tema es: " << nh1.obtener_tema() << endl;
-    cout << "Muestro la novela del: " << nh3.obtener_anio() << " cuyo tema es: " << nh1.obtener_tema() << endl;
-    cout << "Muestro la novela de: " << nh4.obtener_autor()->obtener_nombre() << " cuyo tema es: " << nh1.obtener_tema() << endl;       // ERROR!!!!
-    cout << "\n";
+    //Pruebo los metodos de Novela_historicas y los heredados
+    cout << "Muestro la novela llamada: " << nh1.obtener_titulo() << " escrita por: " << nh1.nombre_autor() << " cuyo tema es: " << nh1.obtener_tema() << endl;
+    cout << "Muestro la novela de: " << nh2.obtener_autor() << " cuyo tema es: " << nh1.obtener_tema() << endl;
+    cout << "Muestro la novela del: " << nh3.obtener_anio() << " escrita por alguien de nacionalidad: " << nh3.obtener_autor()->obtener_nacionalidad() << " cuyo tema es: " << nh1.obtener_tema() << endl;
+    cout << "Muestro la novela de: " << nh4.obtener_autor() << " cuyo tema es: " << nh1.obtener_tema() << endl;
+    cout << "\n\n";
 
 
     // Creo novelas
@@ -91,9 +114,12 @@ int main(){
 
     // Pruebo metodods de NOvela y metodos heredados de Lectura
     cout << " El genero de la novela1 llamada " << novela1.obtener_titulo() << " es " << novela1.obtener_genero() << endl;
-    cout << " El genero de la novela2 del anio " << novela2.obtener_anio() << " es " << novela2.obtener_genero() << endl;
+    cout << " El genero de la novela2 de " << novela2.obtener_autor() << " (NULL) es " << novela2.obtener_genero() << endl;
     cout << " El genero de la novela3 es " << novela3.obtener_genero() << endl;
     cout << " El genero de la novela4 es " << novela4.obtener_genero() << endl;
+    cout << " El genero de la novela6 de " << novela6.obtener_autor() << " (NULL) es " << novela6.obtener_genero() << endl;
+
+    cout << "\n";
 
 
     // Creo cuentos
@@ -117,15 +143,15 @@ int main(){
     cout << "El libro donde esta " << c2.obtener_titulo() << "es: " << c2.obtener_libro() << endl;
     cout << "El libro donde esta " << c3.obtener_titulo() << "es: " << c3.obtener_libro() << endl;
     cout << "El libro donde esta " << c4.obtener_titulo() << "es: " << c4.obtener_libro() << endl;
-    cout << "\n";
+    cout << "\n\n";
 
 
     // Creo poemas
     Poema p1("el gran amor", nullptr, 2000, 3, 10);
-    Poema p2("mañana", autor2, 2002, 1, 6);
-    Poema p3("memorias del pasado", autor4, 1900, 2, 8);
+    Poema p2("mañana", &autor2, 2002, 1, 6);
+    Poema p3("memorias del pasado", &autor4, 1900, 2, 8);
     Poema p4("azul", nullptr, 1999, 5, 25);
-    Poema p5("el atardecer", autor1, 1950, 3, 9);
+    Poema p5("el atardecer", &autor1, 1950, 3, 9);
 
     // Muestro los poemas
     p1.mostrar_lectura();
@@ -139,13 +165,12 @@ int main(){
     p5.mostrar_lectura();
     cout << "\n";
 
-    // Imprimo la cant de versos que posee cada uno probandi tambien otros metdoso heredados
-    cout << "el poema "<< p1.obtener_titulo() << " escrito por: " << p1.obtener_autor().obtener_nombre() << " posee " << p1.obtener_versos() << " versos" << endl;
+    // Imprimo la cant de versos que posee cada uno probandi tambien otros metodos heredados
+    cout << "el poema "<< p1.obtener_titulo() << " escrito por: " << p1.nombre_autor() << "(NULL) posee " << p1.obtener_versos() << " versos" << endl;
     cout << "el poema "<< p2.obtener_titulo() << " escrito en: " << p2.obtener_anio() << " posee " << p2.obtener_versos() << " versos" << endl;
-    cout << "el poema "<< p3.obtener_titulo() << " cuyos minutos de lectura es : " << p1.obtener_minutos() << " posee " << p3.obtener_versos() << " versos" << endl;
+    cout << "el poema "<< p3.obtener_titulo() << " cuyos minutos de lectura es : " << p3.obtener_minutos() << " posee " << p3.obtener_versos() << " versos" << endl;
     cout << "Los ultimos dos poemas poseen: " << p4.obtener_versos() << " y " << p5.obtener_versos() << " respectivamente" << endl;
     cout << "\n";
-
 
     return 0;
 }

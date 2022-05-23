@@ -1,10 +1,9 @@
 #include "novela_historica.h"
-#include <iostream>
-using namespace std;
 
 Novela_historica::Novela_historica(string titulo, Escritor* autor, int anio, int minutos, char* tema)
                                     : Novela (titulo, autor, anio, minutos, HISTORICA){
     this -> tema = tema;
+// Esto deberia ser un puntero dinámico, el cual no entiendo como usar
 
 }
 
@@ -17,4 +16,4 @@ void Novela_historica::mostrar_lectura(){
     cout << "Tema: " << tema << endl;
 }
 
-Novela_historica::~Novela_historica(){}
+Novela_historica::~Novela_historica(){} // Con el puntero dinámico, supongo que acá deberia eliminarse
