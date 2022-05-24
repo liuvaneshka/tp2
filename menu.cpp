@@ -26,9 +26,8 @@ void Menu:: mostrar_opciones() {
 }
 
 void Menu:: elegir_opcion() {
-    int strPos;
+    int op;
     cout << "\n\tIngrese la opcion que desea: " << endl;
-    cin >> strPos;
-    cout << "\n";
-    opcion = int(strPos);
+    cin >> op;
+    opcion = int(op);
 }
