@@ -31,7 +31,7 @@ void Parser::procesar_escritor(string ruta, Lista<Escritor*> &lista_escritores){
 
         if(!lectura.empty()){
 
-            codigo = atoi(lectura[1]);
+            codigo = obtener_referencia(lectura);
             nombre = entrada.leer_linea();
             nacionalidad = entrada.leer_linea();
             lectura = entrada.leer_linea();
