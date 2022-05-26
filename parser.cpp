@@ -12,10 +12,11 @@
 
 using namespace std;
 
+/* VER EL ERROR
 Parser::Parser(Archivo entrada) {
     this -> entrada = entrada;
 }
-
+*/
 Parser::~Parser(){}
 
 void Parser::procesar_escritor(string ruta, Lista<Escritor*> &lista_escritores){
