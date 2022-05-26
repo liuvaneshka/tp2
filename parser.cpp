@@ -16,15 +16,11 @@
 
 using namespace std;
 
-const int no_sabo = -1;
-
 Parser::Parser(Archivo _entrada) {
     this->entrada = _entrada;
 }
 
-Parser::~Parser(){
-
-}
+Parser::~Parser(){}
 
 void Parser::procesar_escritor(string ruta, Lista<Escritor*> &lista){
 
@@ -38,7 +34,8 @@ void Parser::procesar_escritor(string ruta, Lista<Escritor*> &lista){
         lectura = entrada.leer_linea();
 
         if(!lectura.empty()){
-
+            
+            codigo = atoi(lectura[1]);
             nombre = entrada.leer_linea();
             nacionalidad = entrada.leer_linea();
             lectura = entrada.leer_linea();
@@ -50,14 +47,13 @@ void Parser::procesar_escritor(string ruta, Lista<Escritor*> &lista){
 
                 if(!lectura.empty())
                     fallecimiento = atoi(lectura.c_str());
+                else
+                    fallecimiento = DESCONOCIDO;
 
             }
             else{
-                nacimiento = no_sabo;
-                lectura = entrada.leer_linea();
-
-                if(!lectura.empty())
-                    fallecimiento = no_sabo;
+                nacimiento = DESCONOCIDO;
+                fallecimiento = DESCONOCIDO;
 
             }
             Escritor* autor = new Escritor(nombre, nacionalidad, nacimiento, fallecimiento);
@@ -84,35 +80,48 @@ void Parser::procesar_lectura(string ruta, Lista<Lectura*> &lista_lectura){
 
             tipo = dato;
             titulo = entrada.leer_linea();
+            
             dato = entrada.leer_linea();
             minutos = atoi(dato.c_str());
+            
             dato = entrada.leer_linea();
             anio = atoi(dato.c_str());
+            
             dato = entrada.leer_linea();
-
-            referencia_autor = entrada.leer_linea();
+            //referencia_autor = entrada.leer_linea();
 
             //if(referencia_autor != "ANONIMO") // el if se elimina xq el metodo al no encontrar el autor deberia devolver nullptr
             //metodo_retrieve_autor(referencia_autor)
 
             if(tipo == POEMA){
                 versos = atoi(dato.c_str());
-                //cargar lista de autor(referencia_autor, lista_lectura)
+                dato = entrada.leer_linea();
+                referencia_autor = atoi(dato[1]);       // Falta tener en cuenta el caso donde dice ANONIMO (error al casterlo a int)
+                autor = rastrear_autor(referencia_autor, lista_lectura);
                 Poema* poema = new Poema(titulo, &autor, anio, minutos, versos);
             }
             else if(tipo == NOVELA){                                    //puse else if para que no recorra ciclos de mas
                 genero = (generos) stof(entrada.leer_linea());
-                //cargar lista de autor(dato,lista_lectura)
                 if (genero == HISTORICA) {
                     tema_linea = entrada.leer_linea();
+                    dato = entrada.leer_linea();
+                    referencia_autor = atoi(dato[1]);
+                    autor = rastrear_autor(referencia_autor, lista_lectura);
                     Novela_historica *historica = new Novela_historica(titulo, &autor, anio, minutos, tema_linea);
                 }
-                else
+                else{
+                    dato = entrada.leer_linea();
+                    referencia_autor = atoi(dato[1]);
+                    autor = rastrear_autor(referencia_autor, lista_lectura);
                     Novela* novela = new Novela(titulo, &autor, anio, minutos, genero);
+                }
+                    
             }
             else if(tipo == CUENTO){
-                //libro = dato;
-                //cargar lista de autor(dato,lista_lectura)
+                libro = dato;
+                dato = entrada.leer_linea();
+                referencia_autor = atoi(dato[1]);
+                autor = rastrear_autor(referencia_autor, lista_lectura);
                 Cuento* cuento = new Cuento(titulo, &autor, anio, minutos, libro);
             }
 
