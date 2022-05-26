@@ -149,10 +149,18 @@ Escritor* Parser::obtener_escritor(string dato, Lista<Escritor*> lista_escritore
     Escritor* escritor;
 
     if (verificar_escritor(dato)){
-        referencia_escritor = atoi(dato[1]);
+        referencia_escritor = obtener_referencia(dato);
         escritor = rastrear_escritor(referencia_escritor, lista_lecturas);
     }
     else
         escritor = nullptr;
     return escritor;
+}
+
+int Parser::obtener_referencia(string linea) {
+    string numero;
+    int i = 1;
+    while(i != linea.size() && linea[i] <= 9 && linea[i] >= 1)
+        numero += linea[i];
+    return (int) stof(numero);
 }
