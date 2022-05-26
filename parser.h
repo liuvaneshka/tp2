@@ -25,14 +25,16 @@ public:
     */
     ~Parser();
 
-    /*post: Abre el archivo de la ruta en modo lectura
+    /* pre: recibe la ruta del archivo, y la lista vacia por referencia
+     * post: crea los objetos y los inserta en la lista
     */
     void procesar_escritor(string ruta, Lista<Escritor*> &lista_escritores);
 
-    /*post: Abre el archivo de la ruta en modo lectura
+    /* pre: recibe la ruta del archivo, y la lista vacia por referencia
+     * post: crea los objetos y los inserta en la lista
     */
     void procesar_lectura(string ruta, Lista<Lectura*> &lista_lectura);
 };
 
 
-#endif //TP2_PARSER_H
+#endif
