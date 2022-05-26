@@ -5,7 +5,7 @@
 #include<string>
 #include "archivo.h"
 #include "lectura.h"
-#include "escritores.h"
+#include "escritor.h"
 
 #ifndef PARSER_H
 #define PARSER_H

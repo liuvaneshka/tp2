@@ -12,7 +12,7 @@
 using namespace std;
 
 const int no_sabo = -1;
-
+/*
 Parser :: Parser(Archivo _entrada){
     this->entrada = _entrada;
 }
@@ -20,8 +20,8 @@ Parser :: Parser(Archivo _entrada){
 Parser :: ~Parser(){
 
 }
-
-Parser :: procesar_escritor(string ruta, Lista<Escritor*> &lista){
+*/
+void Parser :: procesar_escritor(string ruta, Lista<Escritor*> &lista){
 
     string nombre, nacionalidad, codigo, lectura;
     int nacimiento, fallecimiento;
@@ -46,15 +46,10 @@ Parser :: procesar_escritor(string ruta, Lista<Escritor*> &lista){
                 if(!lectura.empty()){
                     fallecimiento = atoi(lectura.c_str());
                 }
-            }
-            else{
-                nacimiento = no_sabo;
-                lectura = entrada.leer_linea();
-
-                if(!lectura.empty()){
+                else
                     fallecimiento = no_sabo;
-                }
             }
+
             Escritor* autor = new Escritor(nombre, nacionalidad, nacimiento, fallecimiento);
             //lista.insertar(autor) // insettar el objeto dentro de la lista
         }
@@ -62,7 +57,7 @@ Parser :: procesar_escritor(string ruta, Lista<Escritor*> &lista){
     entrada.cerrar_archivo(); // esto o destructor
 }
 
-Parser :: procesar_lectura(string ruta, Lista<Lectura*> &lista_lectura){
+void Parser :: procesar_lectura(string ruta, Lista<Lectura*> &lista_lectura){
 
     string dato, titulo, genero, tipo, libro, referencia_autor, tema_linea;
     int minutos, anio, versos;

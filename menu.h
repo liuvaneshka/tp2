@@ -1,30 +1,34 @@
 //
-// Created by liuvaneshka on 17/05/22.
+// Created by liuvaneshka on 26/05/22.
 //
 
 #ifndef MENU_H
 #define MENU_H
 
+#include <iostream>
+
+
+using namespace std;
+
+//const string ARCHIVO_LECTURAS = "Lecturas.txt";
+//const string ARCHIVO_ESCRITORES = "Autores.txt";
+
+
 class Menu {
+
 private:
-    int opcion
+    //Lista<Lectura*> lecturas;
+    //Lista<Escritor*> Escritores;
+    int opcion;
+
 public:
-    /*pre: opcion es un entero
-     * post: inicializa un menu a partir de la opcion
-     */
-    Menu(int _opcion);
-    /*post: destruye Menu
-    */
-    ~Menu();
-    /* post : devuelve la opcion del menu
-    */
-    obtener_opcion();
-    /* post : imprime las opciones del menu
-    */
-    mostrar_opciones();
-    /* post : asigna la opcion
-    */
-    elegir_opcion();
+
+    /* post: imprime el menu */
+    void mostrar_menu();
+    /* post: pide al usuario la opcion*/
+    void elegir_opcion();
+    /* post: dependiendo del caso cambia el estado*/
+    bool selector_menu();
 
 };
 
