@@ -31,7 +31,7 @@ public:
 
     void procesar_escritor(string ruta, Lista<Escritor*> &lista_escritores);
     void procesar_lectura(string ruta, Lista<Lectura*> &lista_lecturas, Lista<Escritor*> &lista_escritores);
-    int referencia(string linea);
+    int obtener_referencia(string linea);
 
 };
 #endif // __PARSER_H__
