@@ -132,12 +132,7 @@ void Parser::almacenar_lectura(Lectura* lectura, Lista<Lectura*> &lista_lecturas
 int Parser::obtener_posicion_correcta(Lectura* lectura, Lista<Lectura*> &lista_lecturas){}
 
 bool Parser::verificar_escritor(string linea_escritor){
-    bool hay_escritor;
-    if (linea_escritor == "ANONIMO")
-        hay_escritor = false;
-    else
-        hay_escritor = true;
-    return hay_escritor;
+    return (linea_escritor != "ANONIMO");
 }
 
 Escritor* Parser::rastrear_escritor(int codigo, Lista<Escritor*> lista_escritores){
