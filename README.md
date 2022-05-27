@@ -6,6 +6,7 @@ PROBLEMAS
 1) parser.cpp
   a) ver constructor del Parser
   b) errores cuando se crean las lecturas en el parser
+  c) Error al obtener el codigo del escritor/lectura
 
 2) novela_historica.cpp
   a) char dinamico del tema
@@ -19,3 +20,4 @@ PROBLEMAS
  
 5) CONSTANTES.h
   a) necesito un enumerado para el switch del menu.cpp pero no conviven el enumerado tipo_lectura y las constantes de POEMA, CUENTO, NOVELA
+  b) Problema a) genera error en el parser, porque toma el POEMA del enumerado, no la constante
