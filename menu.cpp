@@ -23,6 +23,8 @@ void Menu::mostrar_menu(){
     for(int i = 0; i < tamanio; i++){
         cout << i+1 << ". " << OPCIONES[i]  << endl;
     }
+    elegir_opcion();
+    selector_menu();
 }
 
 void Menu::elegir_opcion() {
@@ -114,6 +116,7 @@ bool Menu::selector_menu(){
             estado = true;
 
     }
+    mostrar_menu();
     return estado;
 }
 void Menu::agregar_lectura(){
