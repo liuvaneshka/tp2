@@ -2,11 +2,9 @@
 enum generos {DRAMA, COMEDIA, FICCION, SUSPENSO,
               TERROR, ROMANTICA, HISTORICA = 6};
 
-const std::string POEMA = "P";      // Surgio un error de doble inicializacion tras crear el switch de agregar lectura en el menu
+const std::string POEMA = "P";
 const std::string NOVELA = "N";
 const std::string CUENTO = "C";
-
-enum tipo_lectura {POEMA, CUENTO, NOVELA, NOVELA_HISTORICA};        // ESTO ORIGINÓ EL PROBLEMA!!
 
 const int DESCONOCIDO = -1;
 
