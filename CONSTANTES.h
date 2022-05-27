@@ -6,7 +6,6 @@ const std::string POEMA = "P";
 const std::string NOVELA = "N";
 const std::string CUENTO = "C";
 
-
 const int DESCONOCIDO = -1;
 
 const string ARCHIVO_LECTURAS = "Lecturas.txt";
