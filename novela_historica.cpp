@@ -7,7 +7,6 @@ Novela_historica::Novela_historica(string titulo, Escritor* autor, int anio, int
     char* _tema = new char[tema.size()];
     for (int i = 0; i < tema.size(); i++)
         _tema[i] = tema[i];
-
     this->tema = _tema;
 }
 }
