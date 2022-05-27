@@ -17,3 +17,5 @@ PROBLEMAS
   a) Constructor de menu
   b) Como castear el string a una variable de tipo generos
  
+5) CONSTANTES.h
+  a) necesito un enumerado para el switch del menu.cpp pero no conviven el enumerado tipo_lectura y las constantes de POEMA, CUENTO, NOVELA
