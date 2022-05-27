@@ -21,6 +21,7 @@ private:
     Escritor* obtener_escritor(string dato, Lista<Escritor*> lista_escritores);
     Escritor* rastrear_escritor(int codigo, Lista<Escritor*> lista_escritores);
     int obtener_posicion_correcta(Lectura* lectura, Lista<Lectura*> &lista_lecturas);
+    char* obtener_tema(string linea);
 
 public:
     // CONSTRUCTOR
