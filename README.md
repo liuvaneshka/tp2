@@ -12,3 +12,8 @@ PROBLEMAS
 
 3) archivo.cpp
   a) hacer el constructor de copia funciona (si es necesario usarlo para solucionar el problema 1.a)
+
+4) menu.cpp
+  a) Constructor de menu
+  b) Como castear el string a una variable de tipo generos
+ 
