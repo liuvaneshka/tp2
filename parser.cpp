@@ -147,7 +147,7 @@ Escritor* Parser::obtener_escritor(string dato, Lista<Escritor*> lista_escritore
 
     if (verificar_escritor(dato)){
         referencia_escritor = obtener_referencia(dato);
-        escritor = rastrear_escritor(referencia_escritor, lista_lecturas);
+        escritor = rastrear_escritor(referencia_escritor, lista_escritores);
     }
     else
         escritor = nullptr;
