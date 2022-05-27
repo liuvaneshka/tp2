@@ -1,7 +1,7 @@
 #include "poema.h"
 
-Poema::Poema(std::string titulo, Escritor *autor, int anio, int minutos, int versos)
-    : Lectura(titulo, autor, anio, minutos){
+Poema::Poema(std::string titulo, Escritor *escritor, int anio, int minutos, int versos)
+    : Lectura(titulo, escritor, anio, minutos){
         this->versos = versos;
 }
 
