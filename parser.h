@@ -42,6 +42,14 @@ private:
     //PRE:
     //POST:
     int obtener_posicion_correcta(Lectura* lectura, Lista<Lectura*> &lista_lecturas);
+    
+    //PRE:
+    //POS:
+    int obtener_referencia(string linea);
+    
+    //PRE:
+    //POS:
+    char* obtener_tema(string linea);
 
 public:
 
