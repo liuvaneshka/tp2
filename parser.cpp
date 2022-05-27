@@ -54,8 +54,7 @@ void Parser::procesar_escritor(string ruta, Lista<Escritor*> &lista_escritores){
 void Parser::procesar_lectura(string ruta, Lista<Lectura*> &lista_lecturas, Lista<Escritor*> &lista_escritores){
 
     Escritor* escritor;
-    string dato, titulo, tipo, libro;
-    char* tema_linea;
+    string dato, titulo, tipo, libro, tema_linea;
     int referencia_escritor;
     generos genero;
     int minutos, anio, versos;
