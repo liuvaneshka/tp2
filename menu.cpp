@@ -168,7 +168,7 @@ Lectura* Menu::crear_lectura(){     //Problemas con entradas por teclado y los e
             Lectura* nueva_lectura = new Novela(titulo, escritor_lectura, anio, minutos, genero);
 
         case NOVELA_HISTORICA:
-            char* tema:     // CHAR DINAMICO!!!
+            string tema;     // CHAR DINAMICO!!!
             cout << "Ingrese el tema de la novela histórica: ";
             cin >> tema;
             Lectura* nueva_lectura = new Novela_historica(titulo, escritor_lectura, anio, minutos, tema);
