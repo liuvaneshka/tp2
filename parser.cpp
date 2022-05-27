@@ -12,8 +12,8 @@ Parser::~Parser(){}
 
 void Parser::procesar_escritor(string ruta, Lista<Escritor*> &lista_escritores){
 
-    string nombre, nacionalidad, codigo, lectura;
-    int nacimiento, fallecimiento;
+    string nombre, nacionalidad, lectura;
+    int nacimiento, fallecimiento, codigo;
 
     entrada.abrir_archivo(ruta);
 
