@@ -54,7 +54,7 @@ void Parser::procesar_escritor(string ruta, Lista<Escritor*> &lista_escritores){
 
             }
             Escritor* escritor = new Escritor(nombre, nacionalidad, nacimiento, fallecimiento);
-            almacenar_escritor(escritor);
+            almacenar_escritor(escritor, lista_escritores);
         }
     }
     entrada.cerrar_archivo(); // esto o destructor
@@ -63,7 +63,8 @@ void Parser::procesar_escritor(string ruta, Lista<Escritor*> &lista_escritores){
 void Parser::procesar_lectura(string ruta, Lista<Lectura*> &lista_lecturas, Lista<Escritor*> &lista_escritores){
 
     Escritor* escritor;
-    string dato, titulo, tipo, libro, tema_linea;
+    string dato, titulo, tipo, libro;
+    char* tema_linea;
     int referencia_escritor;
     generos genero;
     int minutos, anio, versos;
@@ -96,7 +97,7 @@ void Parser::procesar_lectura(string ruta, Lista<Lectura*> &lista_lecturas, List
             else if(tipo == NOVELA){                                    //puse else if para que no recorra ciclos de mas
                 genero = (generos) stof(entrada.leer_linea());
                 if (genero == HISTORICA) {
-                    tema_linea = entrada.leer_linea();
+                    tema_linea = obtener_tema(entrada.leer_linea());
                     dato = entrada.leer_linea();
                     escritor = obtener_escritor(dato, lista_escritores);
                     Novela_historica *historica = new Novela_historica(titulo, &escritor, anio, minutos, tema_linea);
@@ -159,4 +160,13 @@ int Parser::obtener_referencia(string linea) {
     while(i != linea.size() && linea[i] <= 9 && linea[i] >= 1)
         numero += linea[i];
     return (int) stof(numero);
+}
+
+char* Parser::obtener_tema(string linea){
+    char* tema = new char[linea.size()];
+
+    for (int i = 0; i < linea.size(); i++)
+        tema[i] = linea[i];
+
+    return tema;
 }
