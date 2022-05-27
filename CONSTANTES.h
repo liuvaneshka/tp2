@@ -12,7 +12,8 @@ const string ARCHIVO_LECTURAS = "Lecturas.txt";
 const string ARCHIVO_ESCRITORES = "Autores.txt";
 
 string OPCIONES [] = {"Agregar una nueva lectura",
-                    "Quitar lectura","Agregar un escritor",
+                    "Quitar lectura",
+                    "Agregar un escritor",
                     "Actualizar fallecimiento autor",
                     "Listar los escritores",
                     "Sortear una lectura",
