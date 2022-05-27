@@ -2,9 +2,14 @@
 #include <iostream>
 using namespace std;
 
-Novela_historica::Novela_historica(string titulo, Escritor* autor, int anio, int minutos, char* tema)
+Novela_historica::Novela_historica(string titulo, Escritor* autor, int anio, int minutos, string tema)
                                     : Novela (titulo, autor, anio, minutos, HISTORICA){
-    this -> tema = tema;        // CHAR DINAMICO !!!
+    char* _tema = new char[tema.size()];
+    for (int i = 0; i < tema.size(); i++)
+        _tema[i] = tema[i];
+
+    this->tema = _tema;
+}
 }
 
 Novela_historica::~Novela_historica(){
