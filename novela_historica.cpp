@@ -1,18 +1,10 @@
 #include "novela_historica.h"
-#include <iostream>
-using namespace std;
 
-Novela_historica::Novela_historica(string titulo, Escritor* autor, int anio, int minutos, string tema)
+Novela_historica::Novela_historica(string titulo, Escritor* autor, int anio, int minutos, char* tema)
                                     : Novela (titulo, autor, anio, minutos, HISTORICA){
-    char* _tema = new char[tema.size()];
-    for (int i = 0; i < tema.size(); i++)
-        _tema[i] = tema[i];
-    this->tema = _tema;
-}
-}
+    this -> tema = tema;
+// Esto deberia ser un puntero dinámico, el cual no entiendo como usar
 
-Novela_historica::~Novela_historica(){
-    delete tema;    //Libera memoria del char dinámico ???
 }
 
 char* Novela_historica::obtener_tema(){
@@ -21,6 +13,7 @@ char* Novela_historica::obtener_tema(){
 
 void Novela_historica::mostrar_lectura(){
     Lectura::mostrar_lectura();
-    cout << "Tema: " << tema << "\n" << endl;
+    cout << "Tema: " << tema << endl;
 }
 
+Novela_historica::~Novela_historica(){} // Con el puntero dinámico, supongo que acá deberia eliminarse
