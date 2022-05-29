@@ -9,7 +9,7 @@ Archivo :: Archivo(string ruta){
 }
 
 Archivo :: ~Archivo(){
-    this->cerrar_archivo(); // preguntar
+    this->cerrar_archivo();
 }
 
 void Archivo :: abrir_archivo(string ruta){
