@@ -18,7 +18,7 @@
 
 
 void Menu::mostrar_menu(){
-    int tamanio = sizeof(OPCIONES)/sizeof(OPCIONES[0]); // Pasé la lista de las opciones a inmprimir a una constante
+    int tamanio = sizeof(OPCIONES)/sizeof(OPCIONES[0]); 
 
     for(int i = 0; i < tamanio; i++){
         cout << i+1 << ". " << OPCIONES[i]  << endl;
@@ -36,7 +36,7 @@ void Menu::elegir_opcion() {
 
 bool Menu::selector_menu(){
 
-    bool estado;        // Para que esta variable ??
+    bool estado;        
 
     switch (this->opcion) {
 
@@ -169,7 +169,7 @@ Lectura* Menu::crear_lectura(){     //Problemas con entradas por teclado y los e
             generos genero_numerado = obtener_genero(genero);
 
             if(genero_numerado == HISTORICA){
-                string tema;     // CHAR DINAMICO!!!
+                string tema;    
                 cout << "Ingrese el tema de la novela histórica: ";
                 cin >> tema;
                 nueva_lectura = new Novela_historica(titulo, escritor_lectura, anio, minutos, tema);
