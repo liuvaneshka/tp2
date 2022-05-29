@@ -5,7 +5,7 @@ using namespace std;    // Esto despues habría que sacarlo
 Archivo :: Archivo(string ruta){
     this->abierto = true;
     abrir_archivo(ruta);
-    this-> linea = linea;   // No entiendo para que sirve este tributo ??
+    this-> linea = linea;  
 }
 
 Archivo :: ~Archivo(){
