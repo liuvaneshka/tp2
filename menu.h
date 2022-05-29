@@ -76,6 +76,14 @@ private:
 
 public:
 
+    //PRE: recibe dos cadenas representando la ruta de los archivos
+    //POST: construye el objeto
+    Menu();
+
+    //PRE:
+    //POST: destruye el objeto
+    ~Menu();
+
     //PRE:
     //POST: imprime el menu.
     void mostrar_menu();

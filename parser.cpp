@@ -2,14 +2,14 @@
 #include <string>
 #include "parser.h"
 
-//using namespace std;
-
-Parser::Parser(Archivo entrada) {
-    this -> entrada = entrada;
+using namespace std;
+/*
+Parser::Parser(Archivo _entrada) {
+    this -> entrada = _entrada;
 }
 
 Parser::~Parser(){}
-
+*/
 void Parser::procesar_escritor(string ruta, Lista<Escritor*> &lista_escritores){
 
     string nombre, nacionalidad, lectura;

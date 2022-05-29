@@ -32,9 +32,7 @@ void Novela_historica::almacenar_caracteres(char caracter, char * &arreglo, int 
         arreglo = new char[contador];
         arreglo[0] = caracter;
     }
-
     else{
-
         char* aux = nullptr;
         aux = new char[contador + 1];
         copiar_vector(contador, aux, arreglo);

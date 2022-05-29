@@ -1,4 +1,5 @@
 #include "menu.h"
+#include "parser.h"
 #include <iostream>
 
 // 1) CONSTRUCTOR DE MENU ???
@@ -15,7 +16,12 @@
     // !- LIBERAR LA MEMORIA DE LA LISTA_LECTURAS
     // !- LIBERAR PARSER Y ARCHIVO ???
     // * - FUNCION DE COLA DE LECTURAS, CUIDADO AL ELIMINARLA, NO QUEREMOS ELIMINAR LOS OBJETOS !!!
+Menu::Menu(){
+    this->lista_escritores =  lista_escritores.procesar_escritor(ARCHIVO_ESCRITORES,lista_escritores);
+    this->lista_lecturas = lista_lecturas.procesar_lectura(ARCHIVO_LECTURAS, lista_lecturas, lista_escritores);
+}
 
+Menu::~Menu(){}
 
 void Menu::mostrar_menu(){
     int tamanio = sizeof(OPCIONES)/sizeof(OPCIONES[0]); 

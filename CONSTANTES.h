@@ -1,3 +1,5 @@
+#include <iostream>
+using namespace std;
 
 enum generos {DRAMA, COMEDIA, FICCION, SUSPENSO,
               TERROR, ROMANTICA, HISTORICA = 6};

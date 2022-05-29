@@ -12,7 +12,7 @@ public:
 
     //PRE: genero y tema deben ser válidos.
     //POST: Construye un objeto Novela_historica.
-    Novela_historica(string titulo, Escritor* escritor, int anio, int minutos, string *tema);
+    Novela_historica(string titulo, Escritor* escritor, int anio, int minutos, string tema);
 
     //PRE: El objeto Novela_historica debe ser un objero válido.
     //POST: Destruye un objeto Novela_historica.
@@ -35,7 +35,7 @@ public:
     //PRE: recibe el tema
     //POST: Devuelve el tema de la Novela_historica.
 
-    char* recorrer_tema(char tema[]);
+    char* recorrer_tema(string tema);
 
     //PRE: El objeto Novela_historica debe ser un objeto válido.
     //POST: Muestra por pantalla los atributos de Novela_historica.

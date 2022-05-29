@@ -4,8 +4,6 @@
 #include "lectura.h"
 #include "escritor.h"
 #include "archivo.h"
-#include "CONSTANTES.h"
-
 #include "novela.h"
 #include "novela_historica.h"
 #include "cuento.h"
@@ -55,15 +53,17 @@ public:
 
     //PRE:
     //POST:
-    Parser(Archivo entrada);
+    //Parser();
 
     //PRE:
     //POST:
-    ~Parser();
+    //~Parser();
 
     //PRE:
     //POST:
     void procesar_escritor(string ruta, Lista<Escritor*> &lista_escritores);
-
+    //PRE:
+    //POST:
+    void procesar_lectura(string ruta, Lista<Lectura*> &lista_lectura,Lista<Escritor*> &lista_escritores);
 };
 #endif // __PARSER_H__
