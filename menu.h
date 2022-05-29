@@ -29,6 +29,7 @@ private:
     void agregar_lectura();
     Lectura* crear_lectura();
     void almacenar_lectura(Lectura* lectura);
+    generos obtener_genero(string genero);
 
     //Opcion2
     void quitar_lectura();
