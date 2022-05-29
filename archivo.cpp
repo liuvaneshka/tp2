@@ -1,11 +1,10 @@
 #include "archivo.h"
 
-using namespace std;    // Esto despues habría que sacarlo
+using namespace std;   
 
 Archivo :: Archivo(string ruta){
     this->abierto = true;
     abrir_archivo(ruta);
-    this-> linea = linea;  
 }
 
 Archivo :: ~Archivo(){
