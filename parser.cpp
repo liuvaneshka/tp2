@@ -88,10 +88,10 @@ void Parser::procesar_lectura(string ruta, Lista<Lectura*> &lista_lecturas, List
             else if(tipo == NOVELA){
                 genero = (generos) stof(entrada.leer_linea());
                 if (genero == HISTORICA) {
-                    tema_linea = obtener_tema(entrada.leer_linea());      // DEBE SER UN CHAR DINAMICO !!! (lo resolvi de esa forma, fijense si esta bien)
+                    tema_linea = entrada.leer_linea();     
                     dato = entrada.leer_linea();
                     escritor = obtener_escritor(dato, lista_escritores);
-                    Novela_historica* historica = new Novela_historica(titulo, escritor, anio, minutos, tema_linea);    // Error originado por el tema_linea (string, char, char dinamico)
+                    Novela_historica* historica = new Novela_historica(titulo, escritor, anio, minutos, tema_linea); 
                     almacenar_lectura(historica, lista_lecturas);
                 }
                 else{
@@ -158,13 +158,4 @@ int Parser::obtener_referencia(string linea) {
     while(i != linea.size() && linea[i] <= 9 && linea[i] >= 1)
         numero += linea[i];
     return (int) stof(numero);
-}
-
-char* Parser::obtener_tema(string linea){
-    char* tema = new char[linea.size()];
-
-    for (int i = 0; i < linea.size(); i++)
-        tema[i] = linea[i];
-
-    return tema;
 }
