@@ -65,9 +65,5 @@ public:
     //POST:
     void procesar_escritor(string ruta, Lista<Escritor*> &lista_escritores);
 
-    //PRE:
-    //POST:
-    void procesar_lectura(string ruta, Lista<Lectura*> &lista_lecturas, Lista<Escritor*> &lista_escritores);
-
 };
 #endif // __PARSER_H__
