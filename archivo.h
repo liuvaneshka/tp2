@@ -1,7 +1,7 @@
 #ifndef ARCHIVOS_H
 #define ARCHIVOS_H
 #include<iostream>
-#include<string>        // Hace falta incluirlo?
+#include<string>       
 #include<fstream>
 
 using namespace std;
