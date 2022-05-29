@@ -381,11 +381,12 @@ void Menu::listar_novelas_de_genero(){
 }
 
 generos Menu::pedir_genero(){
-    generos genero;
+    string genero;
 
     cout << "Ingrese el genero de las novelas que desea listar: ";
-    cin >> genero;      // Como casteo al enumerado ???
-    return genero;
+    cin >> genero;
+    
+    return obtener_genero(genero);
 }
 
 void Menu::cola_de_lecturas(){
