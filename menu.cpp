@@ -127,12 +127,11 @@ void Menu::agregar_lectura(){
 
 Lectura* Menu::crear_lectura(){     //Problemas con entradas por teclado y los enumerados!!! como casteo en estos casos ???
     string titulo, escritor;
-    tipo_lectura tipo;
-    int anio, minutos;
+    int anio, minutos, tipo;
     Lectura* nueva_lectura;
     Escritor* escritor_lectura;
 
-    cout << "Ingrese el tipo de lectura que deseas crear (CUENTO / POEMA / NOVELA / NOVELA HISTORICA): ";
+    cout << "Ingrese el numero de la lectura que deseas crear (1. POEMA / 2. CUENTO / 3. NOVELA): ";
     cin >> tipo;
 
     cout << "Ingrese el título de la lectura: ";
@@ -149,29 +148,35 @@ Lectura* Menu::crear_lectura(){     //Problemas con entradas por teclado y los e
     // Podría modularizarse aún mas !!!
     switch(tipo) {      // Para el switch cree un nuevo enumerado
 
-        case POEMA:
+        case 1:
             int versos;
             cout << "Ingrese la cantidad de versos del poema: ";
             cin >> versos;
-            Lectura* nueva_lectura = new Poema(titulo, escritor_lectura, anio, minutos, versos);
+            nueva_lectura = new Poema(titulo, escritor_lectura, anio, minutos, versos);
+            break;
 
-        case CUENTO:
+        case 2:
             string libro;
             cout << "Ingrese el titulo del libro: ";
             cin >> libro;
-            Lectura* nueva_lectura = new Cuento(titulo, escritor_lectura, anio, minutos, libro);
+            nueva_lectura = new Cuento(titulo, escritor_lectura, anio, minutos, libro);
+            break;
 
-        case NOVELA:
-            generos genero;
+        case 3:
+            string genero;
             cout << "Ingrese el género de la novela (DRAMA / COMEDIA / FICCION / SUSPENSO / TERROR / ROMANTICA): ";
             cin >> genero;
-            Lectura* nueva_lectura = new Novela(titulo, escritor_lectura, anio, minutos, genero);
+            generos genero_numerado = obtener_genero(genero);
 
-        case NOVELA_HISTORICA:
-            string tema;     // CHAR DINAMICO!!!
-            cout << "Ingrese el tema de la novela histórica: ";
-            cin >> tema;
-            Lectura* nueva_lectura = new Novela_historica(titulo, escritor_lectura, anio, minutos, tema);
+            if(genero_numerado == HISTORICA){
+                string tema;     // CHAR DINAMICO!!!
+                cout << "Ingrese el tema de la novela histórica: ";
+                cin >> tema;
+                nueva_lectura = new Novela_historica(titulo, escritor_lectura, anio, minutos, tema);
+            }
+            else
+                nueva_lectura = new Novela(titulo, escritor_lectura, anio, minutos, genero_numerado);
+            break;
 
         default:
             cout << "Datos inválidos, intente nuevamente." << endl;
@@ -182,6 +187,27 @@ Lectura* Menu::crear_lectura(){     //Problemas con entradas por teclado y los e
 
 void Menu::almacenar_lectura(Lectura* lectura){
     //Mismo método del parser :)
+}
+
+generos Menu::obtener_genero(string genero) {
+    generos numero_genero;
+
+    if (genero == "DRAMA")
+        numero_genero = DRAMA;
+    else if (genero == "COMEDIA")
+        numero_genero = COMEDIA;
+    else if (genero == "FICCION")
+        numero_genero = FICCION;
+    else if (genero == "SUSPENSO")
+        numero_genero = SUSPENSO;
+    else if (genero == "TERROR")
+        numero_genero = TERROR;
+    else if (genero == "ROMANTICA")
+        numero_genero = ROMANTICA;
+    else if (genero == "HISTORICA")
+        numero_genero = HISTORICA;
+
+    return numero_genero;
 }
 
 void Menu::quitar_lectura(){
