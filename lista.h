@@ -66,7 +66,6 @@ public:
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 template <typename Dato>
 Lista <Dato>::Lista(){
     primero = 0;
@@ -81,17 +80,18 @@ Nodo<Dato>* Lista <Dato>::obtener_nodo(int posicion){
     while (contador < posicion){
         actual = actual -> obtener_siguiente();
         contador++;
+        std::cout << "while metodo actual :   " << std::endl;
     }
     std::cout << "   metodo obtner nodo actual:  " << actual << std::endl;
-    return actual;
+    return actual;  
 }
 
 template <typename Dato>
 void Lista <Dato>::alta(Dato dato, int posicion){
     Nodo<Dato>* nuevo = new Nodo<Dato>(dato);
-    std::cout << "entro al alta: " << posicion << std::endl;
+    std::cout << "entro al metodo alta: " << posicion << std::endl;
     if (posicion == 1){
-        std::cout << "   posicion  " << std::endl;
+        std::cout << "   posicion 1  " << std::endl;
         nuevo -> cambiar_siguiente(primero);
         primero = nuevo;
     }
@@ -149,16 +149,16 @@ int Lista <Dato>::obtener_tamanio(){
 template <typename Dato>
 Lista <Dato>::~Lista(){
     while (! vacia())
-           baja(1);
+        baja(1);
 }
 
-    // VERIFICAR ESTAS 3 FUNCIONES !!! ////////////////////
+// VERIFICAR ESTAS 3 FUNCIONES !!! ////////////////////
 template <typename Dato>
 void Lista <Dato>::inicializar(){
     cursor = primero;
 }
 
- template <typename Dato> bool Lista <Dato>::hay_siguiente(){
+template <typename Dato> bool Lista <Dato>::hay_siguiente(){
     return (cursor -> obtener_siguiente() == 0);
 }
 
@@ -171,7 +171,7 @@ void Lista<Dato>::siguiente(){
 
 template <typename Dato>
 Dato Lista<Dato>::obtener_dato_cursor(){
-    return cursor->obtener_dato();
+    returnursor->obtener_dato();
 }
 
 #endif // __LISTA_H__
