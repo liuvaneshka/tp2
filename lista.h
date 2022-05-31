@@ -171,7 +171,7 @@ void Lista<Dato>::siguiente(){
 
 template <typename Dato>
 Dato Lista<Dato>::obtener_dato_cursor(){
-    returnursor->obtener_dato();
+    return cursor->obtener_dato();
 }
 
 #endif // __LISTA_H__
