@@ -20,7 +20,7 @@
         //Para este punto ya se eliminaron los objetos Lectura, queda solo liberar la memoria de los nodos y la memoria pedida para la Cola vacía
 
 // 3) En cola_lecturas -> Boceto de implementacion (no terminado)
-/*
+/*  
     this->cola_lecturas = new Cola();
     int minimo = 0;
     Lectura* primera_lectura, *lectura_comparacion;
@@ -30,30 +30,31 @@
         Lectura* lectura_actual = lista_lecturas.obtener_dato_cursor();
 
         if (!cola_lecturas.vacia()){
-            if (lectura_actual->obtener_minutos() < minimo)
+            if (lectura_actual->obtener_minutos() < minimo) {
                 primera_lectura = lectura_actual;
                 minimo = lectura_actual -> obtener_minutos(); 
+            }
 
 
             else
                 primera_lectura = cola_lecturas.consultar();
 
 
-
-            do {
+            lectura_comparacion = cola_lecturas.consultar();
+            while (lectura_actual > lectura_comparacion && lectura_comparacion != primera_lectura){
                 Lectura* desencolada = cola_lecturas.desencolar();
                 cola_lecturas.encolar(desencolada);
                 lectura_comparacion = cola_lecturas.consultar();
-            } while (lectura_actual > lectura_comparacion && lectura_comparacion != primera_lectura);
-
-            cola_lecturas.encolar(lectura_actual)
+            }
+            cola_lecturas.encolar(lectura_actual);
 
             while(cola_lecturas.consultar() != primera_lectura)
-                cola_lecturas.encolar(cola_lecturas.desencolar())
+                cola_lecturas.encolar(cola_lecturas.desencolar());
         }
-        else
-            cola_lecturas.encolar(lectura_actual)
+        else {
+            cola_lecturas.encolar(lectura_actual);
             minimo = lectura_actual -> obtener_minutos();
+        }
 }
 */
 
