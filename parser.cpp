@@ -177,12 +177,12 @@ bool Parser::verificar_escritor(string linea_escritor){
     return linea_escritor != "ANONIMO";
 }
 
-Escritor* Parser::rastrear_escritor(int codigo, Lista<Escritor*> lista_escritores){
+Escritor* Parser::rastrear_escritor(int codigo, Lista<Escritor*> &lista_escritores){
     cout << "entro rastreo" << endl;
     return lista_escritores.consultar(codigo);
 }
 
-Escritor* Parser::obtener_escritor(string dato, Lista<Escritor*> lista_escritores){
+Escritor* Parser::obtener_escritor(string dato, Lista<Escritor*> &lista_escritores){
     int referencia_escritor;
     Escritor* escritor;
 
