@@ -32,11 +32,11 @@ private:
 
     //PRE:
     //POST:
-    Escritor* obtener_escritor(string dato, Lista<Escritor*> lista_escritores);
+    Escritor* obtener_escritor(string dato, Lista<Escritor*> &lista_escritores);
 
     //PRE:
     //POST:
-    Escritor* rastrear_escritor(int codigo, Lista<Escritor*> lista_escritores);
+    Escritor* rastrear_escritor(int codigo, Lista<Escritor*> &lista_escritores);
 
     //PRE:
     //POST:
