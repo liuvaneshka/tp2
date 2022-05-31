@@ -1,5 +1,6 @@
 #ifndef __NODO_H__
 #define __NODO_H__
+#include <iostream>
 
 template <typename Dato>
 class Nodo{
@@ -27,5 +28,30 @@ public:
     Nodo* obtener_siguiente();
 
 };
+
+////////////////////////////////////////////////
+
+
+template <typename Dato>
+Nodo<Dato>::Nodo(Dato dato){
+    this -> dato = dato;
+    siguiente = 0;
+}
+
+template <typename Dato>
+void Nodo<Dato>::cambiar_siguiente(Nodo* p_nodo){
+    siguiente = p_nodo;
+}
+
+template <typename Dato>
+Dato Nodo<Dato>::obtener_dato(){
+    std::cout << "entro enm el nodo.h obtener_Dato:  " << dato << std::endl;
+    return dato;
+}
+
+template <typename Dato>
+Nodo<Dato>* Nodo<Dato>::obtener_siguiente(){
+    return siguiente;
+}
 
 #endif // __NODO_H__

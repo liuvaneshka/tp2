@@ -82,28 +82,35 @@ Nodo<Dato>* Lista <Dato>::obtener_nodo(int posicion){
         actual = actual -> obtener_siguiente();
         contador++;
     }
+    std::cout << "   metodo obtner nodo actual:  " << actual << std::endl;
     return actual;
 }
 
 template <typename Dato>
 void Lista <Dato>::alta(Dato dato, int posicion){
     Nodo<Dato>* nuevo = new Nodo<Dato>(dato);
+    std::cout << "entro al alta: " << posicion << std::endl;
     if (posicion == 1){
+        std::cout << "   posicion  " << std::endl;
         nuevo -> cambiar_siguiente(primero);
         primero = nuevo;
     }
     else{
+        std::cout << "else alta " << std::endl;
         Nodo<Dato>* aux = obtener_nodo(posicion - 1);
         nuevo -> cambiar_siguiente(aux -> obtener_siguiente());
         aux -> cambiar_siguiente(nuevo);
     }
     tamanio++;
+    std::cout << "salio de alta y el tamanio es: "<< tamanio << std::endl;
 }
 
 
 template <typename Dato>
 void Lista <Dato>::alta_al_final(Dato dato){
-    int posicion_final = obtener_tamanio() - 1;
+    std::cout << "entra a alta_al_final " << std::endl;
+    int posicion_final = obtener_tamanio() + 1;
+    std::cout << "posicion_final " << posicion_final << std::endl;
     alta(dato, posicion_final);
 }
 
@@ -125,6 +132,7 @@ void Lista <Dato>::baja(int posicion){
 template <typename Dato>
 Dato Lista <Dato>::consultar(int posicion){
     Nodo<Dato>* aux = obtener_nodo(posicion);
+    std::cout << "consultando " << aux << "posicion "<< posicion << std::endl;
     return aux -> obtener_dato();
 }
 

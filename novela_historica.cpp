@@ -44,11 +44,11 @@ void Novela_historica::almacenar_caracteres(char caracter, char * &arreglo, int 
 char* Novela_historica::recorrer_tema(string tema){
 
     char* arreglo = nullptr;
-
+    int tamanio = (int)(tema).length();
     int i = 0, contador = 0;
     char caracter;
 
-    while(tema[i] != '\0'){
+    while(tema[i] >= tamanio){
         caracter = tema[i];
         almacenar_caracteres(caracter, arreglo, contador);
         i++;

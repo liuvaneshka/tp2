@@ -81,10 +81,24 @@ Menu::Menu(){
 Menu::~Menu(){}
 
 void Menu::mostrar_menu(){
-    int tamanio = sizeof(OPCIONES)/sizeof(OPCIONES[0]);
+
+    string opciones [] = {"Agregar una nueva lectura",
+                          "Quitar lectura",
+                          "Agregar un escritor",
+                          "Actualizar fallecimiento autor",
+                          "Listar los escritores",
+                          "Sortear una lectura",
+                          "Listar lecturas",
+                          "Listar lecturas por anio",
+                          "Listar lecturas por escritor",
+                          "Listar Novelas por genero",
+                          "Listar proximas lecturas",
+                          "Salir"};
+
+    int tamanio = sizeof(opciones)/sizeof(opciones[0]);
 
     for(int i = 0; i < tamanio; i++){
-        cout << i+1 << ". " << OPCIONES[i]  << endl;
+        cout << i+1 << ". " << opciones[i]  << endl;
     }
 }
 
@@ -252,6 +266,7 @@ void Menu::almacenar_lectura(Lectura* lectura){
     lista_lecturas.alta(lectura, posicion_correcta);
 }
 
+
 int Menu::obtener_posicion_correcta(Lectura* lectura){
     int indice = 1;
     lista_lecturas.inicializar();
@@ -329,14 +344,17 @@ void Menu::almacenar_escritor(Escritor* escritor){
 }
 
 void Menu::modificar_fallecimiento(){
+    /*
     string nombre_escritor = pedir_nombre_escritor();
-    Escritor* escritor_a_modificar = rastrear_escritor();
+    Escritor* escritor_a_modificar = rastrear_escritor(nombre_escritor);
     int nuevo_fallecimiento = pedir_nuevo_fallecimiento();
 
     if (nuevo_fallecimiento == -1 || nuevo_fallecimiento > escritor_a_modificar->obtener_anio_nacimiento())
         escritor_a_modificar -> modificar_fallecimiento(nuevo_fallecimiento);
     else
         cout << "El año de fallecimiento ingresado es iunválido, intente nuevamente." << endl;
+    */
+    cout << "ll" << endl;
 }
 
 string Menu::pedir_nombre_escritor(){
@@ -435,16 +453,19 @@ void Menu::listar_lecturas_de_escritor(){
 }
 
 void Menu::listar_novelas_de_genero(){
+    /*
     generos genero = pedir_genero();
 
     lista_lecturas.inicializar();
     while(lista_lecturas.hay_siguiente()){
         Lectura* lectura_actual = lista_lecturas.obtener_dato_cursor();
 
-        /*if(lectura_actual == Novela && lectura_actual->obtener_genero() == genero)                    // Cómo se puede hacer esto?
+        if(lectura_actual == Novela && lectura_actual->obtener_genero() == genero)                    // Cómo se puede hacer esto?
             imprimir_lectura(lectura_actual);
-        lista_lecturas.siguiente();*/
+        lista_lecturas.siguiente();
     }
+    */
+    cout << endl;
 }
 
 generos Menu::pedir_genero(){

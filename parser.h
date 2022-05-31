@@ -16,7 +16,8 @@ class Parser{
 
 private:
     //Archivo entrada;
-
+    //creacion inicial lista
+    generos obtener_genero(string genero);
     //PRE:
     //POST:
     void almacenar_escritor(Escritor* escritor, Lista<Escritor*> &lista_escritores);
@@ -53,7 +54,7 @@ public:
 
     //PRE:
     //POST:
-    Parser();
+    //Parser();
 
     //PRE:
     //POST:
