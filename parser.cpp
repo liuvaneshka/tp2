@@ -141,7 +141,7 @@ void Parser::almacenar_lectura(Lectura* lectura, Lista<Lectura*> &lista_lecturas
     int posicion_correcta = obtener_posicion_correcta(lectura, lista_lecturas);
     cout << "posicion corrcta      " << posicion_correcta << endl;
     lista_lecturas.alta(lectura, posicion_correcta);
-    cout << "********almaceno con exito" <<endl;
+    cout << "**********almaceno con exito" <<endl;
 
 }
 
