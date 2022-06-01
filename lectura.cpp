@@ -33,7 +33,7 @@ int Lectura::comparar_lecturas(Lectura *_lectura) {
         valor = 1;
     else
         valor = 0;
-
+    cout << "valor " <<valor << endl;
     return valor;
 }
 

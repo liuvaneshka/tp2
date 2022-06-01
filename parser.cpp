@@ -3,12 +3,6 @@
 #include "CONSTANTES.h"
 
 using namespace std;
-/*
-Parser::Parser(){};
-*/
-/*
-Parser::~Parser(){}
-*/
 
 Lista<Escritor*> Parser::procesar_escritor(string ruta, Lista<Escritor*> &lista_escritores){
 
@@ -20,7 +14,6 @@ Lista<Escritor*> Parser::procesar_escritor(string ruta, Lista<Escritor*> &lista_
     while (!entrada.final_archivo()){
         lectura = entrada.leer_linea();
         if(!lectura.empty()){
-            //int codigo = obtener_referencia(lectura);
             nombre = entrada.leer_linea();
             nacionalidad = entrada.leer_linea();
             lectura = entrada.leer_linea();
@@ -35,19 +28,16 @@ Lista<Escritor*> Parser::procesar_escritor(string ruta, Lista<Escritor*> &lista_
                 }
                 else
                     fallecimiento = DESCONOCIDO;
-
             }
             else{
                 nacimiento = DESCONOCIDO;
                 fallecimiento = DESCONOCIDO;
-
             }
             Escritor* escritor = new Escritor(nombre, nacionalidad, nacimiento, fallecimiento);
-            cout << "          ]]]]]]ESCRITOR " << escritor << endl;
             almacenar_escritor(escritor, lista_escritores);
         }
     }
-    entrada.cerrar_archivo(); // esto o destructor
+    entrada.cerrar_archivo();
     return lista_escritores;
 }
 
@@ -62,25 +52,22 @@ Lista<Lectura*> Parser::procesar_lectura(string ruta, Lista<Lectura*> &lista_lec
 
     while (!entrada.final_archivo()){
         dato = entrada.leer_linea();
-        cout << "entra: " << dato << endl;
 
         if(!dato.empty()){
-
+            cout << "-----------nueva lectura tipo : " << dato << endl;
             tipo = dato;
-            cout << "tipo "  << tipo << endl;
             titulo = entrada.leer_linea();
-            cout << "titulo "  << titulo << endl;
+            cout << "titulo:  "  << titulo << endl;
 
             dato = entrada.leer_linea();
             minutos = atoi(dato.c_str());
-            cout << "minutos "  << minutos << endl;
+            cout << "minutos: "  << minutos << endl;
 
             dato = entrada.leer_linea();
             anio = atoi(dato.c_str());
-            cout << "anio "  << anio << endl;
+            cout << "anio: "  << anio << endl;
 
             dato = entrada.leer_linea();
-            cout << "dato"  << dato << endl;
 
             if(tipo == POEMA){
                 versos = atoi(dato.c_str());
@@ -90,10 +77,8 @@ Lista<Lectura*> Parser::procesar_lectura(string ruta, Lista<Lectura*> &lista_lec
                 almacenar_lectura(poema, lista_lecturas);           // si pongo &lista_lecturas dá error
             }
             else if(tipo == NOVELA){
-                dato =  entrada.leer_linea();
-                cout << "dato novela "  << dato << endl;
                 genero = obtener_genero(dato);
-                cout << "genero" << genero << endl;
+                cout << "genero: " << genero << endl;
                 if (genero == HISTORICA) {
                     tema_linea = entrada.leer_linea();
                     dato = entrada.leer_linea();
@@ -103,23 +88,18 @@ Lista<Lectura*> Parser::procesar_lectura(string ruta, Lista<Lectura*> &lista_lec
                 }
                 else{
                     dato = entrada.leer_linea();
-                    cout << "      dato " <<dato << endl;
-                    int codigo = obtener_referencia(dato);
-                    cout <<  "   codigo "<< codigo;
                     escritor = obtener_escritor(dato, lista_escritores);
                     Novela* novela = new Novela(titulo, escritor, anio, minutos, genero);
-                    cout<< "construyo"<< endl;
+                    cout<< "construyo lectura "<< endl;
                     almacenar_lectura(novela, lista_lecturas);
                 }
 
             }
             else if(tipo == CUENTO){
-                cout << "     libro " << endl;
                 libro = dato;
+                cout << "libro: "  << libro  << endl;
                 dato = entrada.leer_linea();
-                cout << dato << endl;
                 escritor = obtener_escritor(dato, lista_escritores);
-                cout <<  "     escritor "<<escritor << endl;
                 Cuento* cuento = new Cuento(titulo, escritor, anio, minutos, libro);
                 cout<< "construyo"<< endl;
                 almacenar_lectura(cuento, lista_lecturas);
@@ -153,23 +133,37 @@ generos Parser::obtener_genero(string genero) {
 }
 
 void Parser::almacenar_escritor(Escritor* escritor, Lista<Escritor*> &lista_escritores){
-    cout << "entro al metodo " << endl;
     lista_escritores.alta_al_final(escritor);
 }
 
 void Parser::almacenar_lectura(Lectura* lectura, Lista<Lectura*> &lista_lecturas){
-    cout << "almaceno" <<endl;
+    cout << "metodo almacenar lectura " <<endl;
     int posicion_correcta = obtener_posicion_correcta(lectura, lista_lecturas);
+    cout << "posicion corrcta      " << posicion_correcta << endl;
     lista_lecturas.alta(lectura, posicion_correcta);
+    cout << "********almaceno con exito" <<endl;
+
 }
 
 int Parser::obtener_posicion_correcta(Lectura* lectura, Lista<Lectura*> &lista_lecturas){
     int indice = 1;
+
+
     lista_lecturas.inicializar();
+    // lo comente xq no continuaba agreganfo lecturas, no se xq me arroja error en obtener sig
+    // antes de comentar no agregaba ninguna lectura ni la primera
+    // ahora cuando se agrega, el error sale al recorrer lista de escirtores
+    // relacinado al metodo obtener_siguiente() dentro de nodo
+    // ya que despoues de no tener un sig, explota y arroja un segmentayion fault
+
+/*
     while(lista_lecturas.hay_siguiente() && lectura->comparar_lecturas(lista_lecturas.consultar(indice)) != -1){
+        cout << "entro while obtener posicion correcta " << endl;
         indice++;
         lista_lecturas.siguiente();
     }
+*/
+    cout << lectura << endl;
     return indice;
 }
 
@@ -178,7 +172,6 @@ bool Parser::verificar_escritor(string linea_escritor){
 }
 
 Escritor* Parser::rastrear_escritor(int codigo, Lista<Escritor*> &lista_escritores){
-    cout << "entro rastreo" << endl;
     return lista_escritores.consultar(codigo);
 }
 
@@ -187,13 +180,13 @@ Escritor* Parser::obtener_escritor(string dato, Lista<Escritor*> &lista_escritor
     Escritor* escritor;
 
     if (verificar_escritor(dato)){
-        cout << "verifico" << endl;
         referencia_escritor = obtener_referencia(dato);
-        cout << "referencia " << referencia_escritor << endl;
+        cout<<"referencia autor: "<<referencia_escritor<<endl;
         escritor = rastrear_escritor(referencia_escritor, lista_escritores);
     }
     else
         escritor = nullptr;
+    cout << "escritor: " << escritor << endl;
     return escritor;
 }
 

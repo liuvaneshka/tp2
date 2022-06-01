@@ -1,6 +1,5 @@
 #include "menu.h"
 #include "parser.h"
-#include <iostream>
 
 // 1) ANALIZAR EN QUE PARTES Y COMO LIBERAR LA MEMORIA DURANTE LA EJECUCION DEL PROGRAMA
     // !- OJO AL DAR DE BAJA UNA LECTURA -> ELIMINO EL NODO PERO NO EL OBEJETO AL QUE APUNTA EL PUNTERO EN DICHO NODO
@@ -20,7 +19,7 @@
         //Para este punto ya se eliminaron los objetos Lectura, queda solo liberar la memoria de los nodos y la memoria pedida para la Cola vacía
 
 // 3) En cola_lecturas -> Boceto de implementacion (no terminado)
-/*  
+/*
     this->cola_lecturas = new Cola();
     int minimo = 0;
     Lectura* primera_lectura, *lectura_comparacion;
@@ -30,31 +29,28 @@
         Lectura* lectura_actual = lista_lecturas.obtener_dato_cursor();
 
         if (!cola_lecturas.vacia()){
-            if (lectura_actual->obtener_minutos() < minimo) {
+            if (lectura_actual->obtener_minutos < minimo)
                 primera_lectura = lectura_actual;
-                minimo = lectura_actual -> obtener_minutos(); 
-            }
-
 
             else
                 primera_lectura = cola_lecturas.consultar();
 
+            Lectura* lectura_comparacion = cola_lecturas.consultar()
 
-            lectura_comparacion = cola_lecturas.consultar();
-            while (lectura_actual > lectura_comparacion && lectura_comparacion != primera_lectura){
+            do {
                 Lectura* desencolada = cola_lecturas.desencolar();
                 cola_lecturas.encolar(desencolada);
                 lectura_comparacion = cola_lecturas.consultar();
-            }
-            cola_lecturas.encolar(lectura_actual);
+            } while (lectura_actual > lectura_comparacion.consultar() && lectura_comparacion != primera_lectura);
+
+            cola_lecturas.encolar(lectura_actual)
 
             while(cola_lecturas.consultar() != primera_lectura)
-                cola_lecturas.encolar(cola_lecturas.desencolar());
+                cola_lecturas.encolar(cola_lecturas.desencolar())
         }
-        else {
-            cola_lecturas.encolar(lectura_actual);
+        else
+            cola_lecturas.encolar(lectura_actual)
             minimo = lectura_actual -> obtener_minutos();
-        }
 }
 */
 
@@ -72,7 +68,7 @@
 
 Menu::Menu(){
     Parser parser;
-    Lista <Escritor*> lista_escritores;     // Debo usar new ???
+    Lista <Escritor*> lista_escritores;
     Lista <Lectura*> lista_lecturas;
 
     this->lista_escritores =  parser.procesar_escritor(ARCHIVO_ESCRITORES, lista_escritores);
@@ -203,7 +199,7 @@ void Menu::agregar_lectura(){
 }
 
 Lectura* Menu::crear_lectura(){
-    string titulo, escritor;
+    string titulo;
     int anio, minutos, tipo;
     Lectura* nueva_lectura = nullptr;
     Escritor* escritor_lectura = nullptr;

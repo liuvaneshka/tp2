@@ -22,7 +22,6 @@ public:
            anio_nacimiento y anio_fallecimiento son enteros positivos */
     //POST: Inicializa un escritor a partir de los atributos dados.
     Escritor(string nombre_apellido, string nacionalidad, int anio_nacimiento, int anio_fallecimiento);
-    Escritor(); // TEMPLATE!!
 
     //PRE:
     //POST: destruye Escritor.

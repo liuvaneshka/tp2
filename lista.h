@@ -1,3 +1,5 @@
+
+
 #ifndef __LISTA_H__
 #define __LISTA_H__
 #include "nodo.h"
@@ -63,6 +65,7 @@ public:
     //PRE:
     //POST:
     Dato obtener_dato_cursor();
+
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -80,37 +83,29 @@ Nodo<Dato>* Lista <Dato>::obtener_nodo(int posicion){
     while (contador < posicion){
         actual = actual -> obtener_siguiente();
         contador++;
-        std::cout << "while metodo actual :   " << std::endl;
     }
-    std::cout << "   metodo obtner nodo actual:  " << actual << std::endl;
-    return actual;  
+    return actual;
 }
 
 template <typename Dato>
 void Lista <Dato>::alta(Dato dato, int posicion){
     Nodo<Dato>* nuevo = new Nodo<Dato>(dato);
-    std::cout << "entro al metodo alta: " << posicion << std::endl;
     if (posicion == 1){
-        std::cout << "   posicion 1  " << std::endl;
         nuevo -> cambiar_siguiente(primero);
         primero = nuevo;
     }
     else{
-        std::cout << "else alta " << std::endl;
         Nodo<Dato>* aux = obtener_nodo(posicion - 1);
         nuevo -> cambiar_siguiente(aux -> obtener_siguiente());
         aux -> cambiar_siguiente(nuevo);
     }
     tamanio++;
-    std::cout << "salio de alta y el tamanio es: "<< tamanio << std::endl;
 }
 
 
 template <typename Dato>
 void Lista <Dato>::alta_al_final(Dato dato){
-    std::cout << "entra a alta_al_final " << std::endl;
     int posicion_final = obtener_tamanio() + 1;
-    std::cout << "posicion_final " << posicion_final << std::endl;
     alta(dato, posicion_final);
 }
 
@@ -131,9 +126,7 @@ void Lista <Dato>::baja(int posicion){
 
 template <typename Dato>
 Dato Lista <Dato>::consultar(int posicion){
-    Nodo<Dato>* aux = obtener_nodo(posicion);
-    std::cout << "consultando " << aux << "posicion "<< posicion << std::endl;
-    return aux -> obtener_dato();
+    return obtener_nodo(posicion)-> obtener_dato();
 }
 
 template <typename Dato>
@@ -156,9 +149,11 @@ Lista <Dato>::~Lista(){
 template <typename Dato>
 void Lista <Dato>::inicializar(){
     cursor = primero;
+    std::cout << "primero: " << primero << std::endl;
 }
 
 template <typename Dato> bool Lista <Dato>::hay_siguiente(){
+    std::cout << "hay sig??????? :  " << cursor -> obtener_siguiente() << std::endl;
     return (cursor -> obtener_siguiente() == 0);
 }
 
@@ -166,6 +161,7 @@ template <typename Dato>
 void Lista<Dato>::siguiente(){
     //Dato elemento = cursor -> obtener_dato();
     cursor = cursor->obtener_siguiente();
+    std::cout << "cursor " << cursor <<std::endl;
     //return elemento;
 }
 
@@ -173,5 +169,6 @@ template <typename Dato>
 Dato Lista<Dato>::obtener_dato_cursor(){
     return cursor->obtener_dato();
 }
+
 
 #endif // __LISTA_H__

@@ -19,6 +19,10 @@ public:
     //POST: Cambia hacia donde apunta el Nodo.
     void cambiar_siguiente(Nodo* p_nodo);
 
+    // PRE: -
+    // POST: Le asigna dato a dato
+    void asignar_dato(Dato _dato);
+
     //PRE: El objeto Nodo debe ser un objeto válido.
     //POST: Devuelve el dato del nodo.
     Dato obtener_dato();
@@ -26,7 +30,9 @@ public:
     //PRE: El objeto Nodo debe ser un objeto válido.
     //POST: Devuelve el Nodo siguiente.
     Nodo* obtener_siguiente();
-
+    // PRE: -
+    // POST: Muestra los datos del nodo
+    void mostrar_nodo();
 };
 
 ////////////////////////////////////////////////
@@ -39,19 +45,28 @@ Nodo<Dato>::Nodo(Dato dato){
 }
 
 template <typename Dato>
-void Nodo<Dato>::cambiar_siguiente(Nodo* p_nodo){
+void Nodo<Dato>::cambiar_siguiente(Nodo<Dato>* p_nodo){
     siguiente = p_nodo;
 }
 
 template <typename Dato>
 Dato Nodo<Dato>::obtener_dato(){
-    std::cout << "entro enm el nodo.h obtener_Dato:  " << dato << std::endl;
     return dato;
+}
+template <typename Dato>
+void Nodo<Dato>:: asignar_dato(Dato _dato) {
+    dato = _dato;
 }
 
 template <typename Dato>
 Nodo<Dato>* Nodo<Dato>::obtener_siguiente(){
+    std::cout << "nodo obtener sig " << siguiente<<std::endl;
     return siguiente;
+}
+
+template <typename Dato>
+void Nodo<Dato>:: mostrar_nodo() {
+    std::cout << "mostrar dato: " << dato << std::endl;
 }
 
 #endif // __NODO_H__
