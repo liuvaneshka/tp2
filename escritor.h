@@ -13,7 +13,7 @@ private:
     int anio_fallecimiento;
 
     //PRE: anio es un entero positivo
-    //POST: devuelve true si es enetero positivo, de lo contrario false
+    //POST: devuelve true  si es enetero positivo, de lo contrario false
     bool validar_entero_positivo(char anio);
 
 public:
