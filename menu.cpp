@@ -492,7 +492,7 @@ void Menu::proximas_lecturas(){
 
 void Menu::cola_de_lecturas(){
     Lista<Lectura*>* lecturas_ordenadas = ordenar_por_minutos();
-    cola_lecturas = new Cola;
+    cola_lecturas = new Cola<Lectura*>;
 
     lecturas_ordenadas->inicializar();
     while(lecturas_ordenadas->hay_actual()){
@@ -536,7 +536,7 @@ int Menu::obtener_posicion_segun_minutos(Lista<Lectura*>* lecturas_ordenadas, Le
 }
 
 void Menu::actualizar_cola(Lectura* lectura_eliminada){
-    Cola* cola_actualizada = new Cola;
+    Cola* cola_actualizada = new Cola<Lectura*>;
 
     while(!cola_lecturas->vacia()){
         Lectura* lectura_actual = cola_lecturas->desencolar();
