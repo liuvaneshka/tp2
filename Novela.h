@@ -25,6 +25,10 @@ public:
     //PRE: El objeto Novela debe ser un objeto válido.
     //POST: Imprime los atributos de la Novela.
     void mostrar_lectura();
+    
+    //PRE: El genero debe ser un genero válido.
+    //POST: Devuelve el string correspondiente al genero del enumerado
+    string string_genero(generos genero);
 
     //PRE: El objeto Novela debe ser un objeto válido.
     //POST: Imprime por pantalla la NOvela, si su género se corresponde con genero.
