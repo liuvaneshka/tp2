@@ -24,7 +24,7 @@ int main() {
 
     Cola* cola = new Cola;
 
-    for (int i = 1; i <= lista ->obtener_tamanio(); i++){ //Mauro: cuando lo probamos en el meet, estaba con <, por eso quizás imprimía el ultimo... :(
+    for (int i = 1; i <= lista ->obtener_tamanio(); i++){ //Mauro: cuando lo probamos en el meet, estaba con <, por eso quizás no imprimía el ultimo... :(
         cola->encolar(lista->consultar(i));
     }
 
