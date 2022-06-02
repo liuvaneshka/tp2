@@ -292,7 +292,7 @@ Escritor* Menu::crear_escritor() {
         cout << VERDE << " (si es desconocida, ingrese ¿?): ";
         cin >> nacionalidad;
 
-        cout << AZUL << "Ingrese el año de nacimientom" << endl;
+        cout << AZUL << "Ingrese el año de nacimiento" << endl;
         cout << VERDE << " (si es desconocida, ingrese -1): ";
         cin >> nacimiento;
 
