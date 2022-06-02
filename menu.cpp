@@ -301,7 +301,7 @@ Escritor* Menu::crear_escritor(){
 }
 
 void Menu::almacenar_escritor(Escritor* escritor){
-    lista_escritores->alta_al_final(escritor);
+    lista_escritores->alta(escritor);
 }
 
 void Menu::modificar_fallecimiento(){
