@@ -30,7 +30,7 @@ public:
 
     //PRE: dato es un dato válido.
     //POST: Agrega el dato al final de la lista.
-    void alta_al_final(Dato dato);
+    void alta(Dato dato);
 
     //PRE: La lista no puede estar vacía. 1 <= pos <= obtener_cantidad().
     //POST: Elimina el dato que se encuentra en la posicion indicada.
@@ -106,7 +106,7 @@ void Lista <Dato>::alta(Dato dato, int posicion){
 
 
 template <typename Dato>
-void Lista <Dato>::alta_al_final(Dato dato){
+void Lista <Dato>::alta(Dato dato){
     int posicion_final = obtener_tamanio() + 1;
     alta(dato, posicion_final);
 }
