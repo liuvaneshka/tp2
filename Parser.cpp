@@ -23,7 +23,7 @@ Lista<Escritor*>* Parser::procesar_escritor(string ruta, Lista<Escritor*> *lista
                 nacimiento = atoi(lectura.c_str());
                 lectura = entrada.leer_linea();
 
-                if (!lectura.empty()) {     // NO SE LEE BIEN EL ULITMO ESCRITOR
+                if (!lectura.empty() && (!entrada.final_archivo())) {
                     fallecimiento = atoi(lectura.c_str());
                 }
                 else
