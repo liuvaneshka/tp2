@@ -31,13 +31,13 @@ void Menu::mostrar_menu(){
     int tamanio = sizeof(opciones)/sizeof(opciones[0]);
 
     for(int i = 0; i < tamanio; i++){
-        cout << i+1 << ". " << opciones[i]  << endl;
+        cout << AMARILLO << i+1 << ". " << opciones[i]  << endl;
     }
 }
 
 void Menu::elegir_opcion(){
     string opcion;
-    cout << "\n\tIngresar opcion: ";
+    cout <<  VIOLETA << "\n\t\tIngresar opcion: " << endl;
     cin >> opcion;
     this->opcion = atoi(opcion.c_str());
 }
@@ -47,67 +47,67 @@ bool Menu::selector_menu(){
     switch (this->opcion){
 
         case 1:
-            cout << "caso 1 "<< endl;
+            cout << VERDE << "caso 1: Agregar una nueva lectura"<< endl;
             agregar_lectura();
             estado = true;
             break;
 
         case 2:
-            cout << "caso 2" << endl;
+            cout << VERDE << "caso 2: Quitar lectura" << endl;
             quitar_lectura();
             estado = true;
             break;
 
         case 3:
-            cout << "caso 3" << endl;
+            cout << VERDE << "caso 3: Agregar un escritor" << endl;
             agregar_escritor();
             estado = true;
             break;
 
         case 4:
-            cout << "caso 4" << endl;
+            cout << VERDE << "caso 4: Actualizar fallecimiento autor" << endl;
             modificar_fallecimiento();
             estado = true;
             break;
 
         case 5:
-            cout << "caso 5" << endl;
+            cout << VERDE << "caso 5: Listar los escritores" << endl;
             listar_escritores();
             estado = true;
             break;
 
         case 6:
-            cout << "caso 6" << endl;
+            cout << VERDE << "caso 6: Sortear una lectura" << endl;
             sortear_lectura();
             estado = true;
             break;
 
         case 7:
-            cout << "caso 7" << endl;
+            cout << VERDE << "caso 7: Listar lecturas" << endl;
             listar_lecturas();
             estado = true;
             break;
 
         case 8:
-            cout << "caso 8" << endl;
+            cout << VERDE << "caso 8: Listar lecturas por anio" << endl;
             listar_lecturas_entre_anios();
             estado = true;
             break;
 
         case 9:
-            cout << "caso 9" << endl;
+            cout << VERDE << "caso 9: Listar lecturas por escritor" << endl;
             listar_por_escritor();
             estado = true;
             break;
 
         case 10:
-            cout << "caso 10" << endl;
+            cout << VERDE << "caso 10: Listar Novelas por genero" << endl;
             listar_novelas_de_genero();
             estado = true;
             break;
 
         case 11:
-            cout << "caso 11" << endl;
+            cout << VERDE << "caso 11: Listar proximas lecturas" << endl;
             proximas_lecturas();
             estado = true;
             break;
@@ -139,14 +139,11 @@ Lectura* Menu::crear_lectura(){
     Lectura* nueva_lectura = nullptr;
     Escritor* escritor_lectura = nullptr;
 
-    cout << "Ingrese el numero de la lectura que deseas crear (1. POEMA / 2. CUENTO / 3. NOVELA): ";
-    cin >> tipo;
-
-    cout << "Ingrese el título de la lectura: ";
+    cout << NEGRO <<"Ingrese el título de la lectura: ";
     cin.ignore();
     getline(cin, titulo);
 
-    cout << "Ingrese el anio de publicacion de la lectura: ";
+    cout << NEGRO << "Ingrese el anio de publicacion de la lectura: ";
     cin >> anio;
 
     cout << "Ingrese minutos promedio de lectura: ";
@@ -154,11 +151,15 @@ Lectura* Menu::crear_lectura(){
 
     escritor_lectura = crear_escritor();
 
+    cout << NEGRO << "Ingrese el numero de la lectura que deseas crear ";
+    cout << AMARILLO << "(1. POEMA / 2. CUENTO / 3. NOVELA): ";
+    cin >> tipo;
+
     switch(tipo) {
 
         case 1:{
             int versos;
-            cout << "Ingrese la cantidad de versos del poema: ";
+            cout << VERDE << "Ingrese la cantidad de versos del poema: ";
             cin >> versos;
             nueva_lectura = new Poema(titulo, escritor_lectura, anio, minutos, versos);
             break;
@@ -175,13 +176,14 @@ Lectura* Menu::crear_lectura(){
 
         case 3:{
             int genero;
-            cout << "Ingrese el género de la novela (1.DRAMA / 2.COMEDIA / 3.FICCION / 4.SUSPENSO / 5.TERROR / 6.ROMANTICA / 7.HISTORICA): ";
+            cout << "Ingrese el género de la novela" << endl;
+            cout << AMARILLO << "(1.DRAMA / 2.COMEDIA / 3.FICCION / 4.SUSPENSO / 5.TERROR / 6.ROMANTICA / 7.HISTORICA): "<< endl;
             cin >> genero;
             generos genero_numerado = (generos) genero;
 
             if(genero_numerado == HISTORICA){
                 string tema;
-                cout << "Ingrese el tema de la novela histórica: ";
+                cout << NEGRO << "Ingrese el tema de la novela histórica: ";
                 cin.ignore();
                 getline(cin, tema);
                 nueva_lectura = new Novela_historica(titulo, escritor_lectura, anio, minutos, tema);
@@ -192,7 +194,7 @@ Lectura* Menu::crear_lectura(){
         }
 
         default:
-            cout << "\nDatos inválidos, intente nuevamente.\n" << endl;
+            cout << ROJO << "\nDatos inválidos, intente nuevamente.\n" << endl;
     }
     return nueva_lectura;
 }
@@ -219,26 +221,26 @@ int Menu::obtener_posicion_segun_anio(Lectura* lectura){
 void Menu::quitar_lectura(){
 
     if (lista_lecturas->vacia())
-        cout << "\n No se puede eliminar ninguna lectura, la lista de lecturas está vacía\n" << endl;
+        cout << ROJO << "\n No se puede eliminar ninguna lectura, la lista de lecturas está vacía\n" << endl;
     else {
         string titulo_lectura = pedir_nombre_lectura();
         int indice_a_eliminar = rastrear_lectura(titulo_lectura);
 
         if (indice_a_eliminar == DESCONOCIDO)
-            cout << "\nLa lectura que desea eliminar no existe, intente nuevamente.\n" << endl;
+            cout << ROJO << "\nLa lectura que desea eliminar no existe, intente nuevamente.\n" << endl;
         else{
             Lectura* eliminar = lista_lecturas->consultar(indice_a_eliminar);
             actualizar_cola(eliminar);
             delete eliminar;                                     // Será correcto?? Intento eliminar el objeto Lectura que ingresó el usuario
             lista_lecturas->baja(indice_a_eliminar);                 // Acá al dar de baja se elimina el Nodo
-            cout << "\nLectura eliminada con éxito!\n" << endl;
+            cout << AZUL << "\nLectura eliminada con éxito!\n" << endl;
         }
     }
 }
 
 string Menu::pedir_nombre_lectura(){
     string titulo_lectura;
-    cout << "Ingrese el titulo de la lectura que desea eliminar: ";
+    cout << ROJO << "Ingrese el titulo de la lectura que desea eliminar: ";
     cin.ignore();
     getline(cin, titulo_lectura);
     return titulo_lectura;
@@ -262,39 +264,42 @@ int Menu::rastrear_lectura(string titulo_lectura){
 
 void Menu::agregar_escritor(){
     Escritor* nuevo_escritor = crear_escritor();
-    almacenar_escritor(nuevo_escritor);
-
     cout << "\nEscritor creado:" << endl;
     nuevo_escritor->mostrar_escritor();
 }
 
-Escritor* Menu::crear_escritor(){
+Escritor* Menu::crear_escritor() {
     string nombre, nacionalidad;
     int nacimiento, fallecimiento;
-    Escritor* nuevo_escritor;
-    Escritor* escritor_hallado;
+    Escritor *nuevo_escritor;
+    Escritor *escritor_hallado;
 
-    cout << "Ingrese el nombre del escritor: ";
+    cout << AZUL << "Ingrese el nombre del escritor: ";
     cin.ignore();
     getline(cin, nombre);
 
     escritor_hallado = rastrear_escritor(nombre);
 
-    if (escritor_hallado)       // Para usar al momento de crear una lectura, si el escritor ya se encunetra creado
+    if (escritor_hallado) {      // Para usar al momento de crear una lectura, si el escritor ya se encunetra creado
         nuevo_escritor = escritor_hallado;
-
+        cout << "Escritor existente " << endl;
+    }
     else{
-        cout << "Ingrese la nacionalidad (si es desconocida, ingrese ¿?): ";
+        cout << AZUL << "Ingrese la nacionalidad" << endl;
+        cout << VERDE << " (si es desconocida, ingrese ¿?): ";
         cin >> nacionalidad;
 
-        cout << "Ingrese el año de nacimiento (si es desconocida, ingrese -1): ";
+        cout << AZUL << "Ingrese el año de nacimientom" << endl;
+        cout << VERDE << " (si es desconocida, ingrese -1): ";
         cin >> nacimiento;
 
-        cout << "Ingrese el año de fallecimiento (si es desconocida o continua vivo, ingerse -1): ";
+        cout << AZUL << "Ingrese el año de fallecimiento " << endl;
+        cout << VERDE << "(si es desconocida o continua vivo, ingerse -1): ";
         cin >> fallecimiento;
 
         nuevo_escritor = new Escritor(nombre, nacionalidad, nacimiento, fallecimiento);
         almacenar_escritor(nuevo_escritor);
+        cout << "almaceno escritor en crear escritor " << endl;
     }
 
     return nuevo_escritor;
@@ -311,15 +316,14 @@ void Menu::modificar_fallecimiento(){
     int nuevo_fallecimiento = pedir_nuevo_fallecimiento();
 
     if (escritor_a_modificar == nullptr)
-        cout << "\nNo se encuentra el escritor que desea modificar, intente nuevamente.\n" << endl;
+        cout << ROJO << "\nNo se encuentra el escritor que desea modificar, intente nuevamente.\n" << endl;
 
     else if (nuevo_fallecimiento == -1 || nuevo_fallecimiento > escritor_a_modificar->obtener_anio_nacimiento()){
         escritor_a_modificar -> modificar_fallecimiento(nuevo_fallecimiento);
-        cout << "\nFallecimiento actualizado con éxito!\n" << endl;
+        cout << AZUL << "\nFallecimiento actualizado con éxito!\n" << endl;
     }
     else
-        cout << "\nEl año de fallecimiento ingresado es inválido, intente nuevamente.\n" << endl;
-
+        cout << ROJO <<  "\nEl año de fallecimiento ingresado es inválido, intente nuevamente.\n" << endl;
 }
 
 Escritor* Menu::rastrear_escritor(string nombre_escritor){
@@ -341,7 +345,7 @@ Escritor* Menu::rastrear_escritor(string nombre_escritor){
 string Menu::pedir_nombre_escritor(){
     string nombre_escritor;
 
-    cout << "Ingrese el nombre del escritor: ";
+    cout << VERDE << "Ingrese el nombre del escritor: ";
     cin.ignore();
     getline(cin, nombre_escritor);
     return nombre_escritor;
@@ -350,7 +354,7 @@ string Menu::pedir_nombre_escritor(){
 int Menu::pedir_nuevo_fallecimiento(){
     int nuevo_fallecimiento;
 
-    cout << "Ingrese el nuevo año de fallecimiento: ";
+    cout << VERDE << "Ingrese el nuevo año de fallecimiento: ";
     cin >> nuevo_fallecimiento;
     return nuevo_fallecimiento;
 }
@@ -360,7 +364,7 @@ void Menu::listar_escritores(){
     lista_escritores->inicializar();
 
     while(lista_escritores->hay_actual()){
-        cout << "Escritor numero: " << contador << endl;
+        cout << VERDE << "Escritor numero: " << contador << endl;
         Escritor* escritor_actual = lista_escritores->obtener_dato_cursor();
         escritor_actual -> mostrar_escritor();
 
@@ -371,11 +375,11 @@ void Menu::listar_escritores(){
 
 void Menu::sortear_lectura(){
     int num_random = rand() % lista_lecturas->obtener_tamanio() + 1;
-    cout << "numero random elegido: " << num_random << endl;
+    cout << VIOLETA << "numero random elegido: " << num_random << endl;
 
     Lectura* lectura_random = lista_lecturas->consultar(num_random);
 
-    cout << "Lectura sorteada: " << endl;
+    cout << AZUL << "Lectura sorteada: " << endl;
     lectura_random->mostrar_lectura();
 }
 
@@ -384,7 +388,7 @@ void Menu::listar_lecturas(){
     lista_lecturas->inicializar();
 
     while(lista_lecturas->hay_actual()){
-        cout << "Lectura numero: "<< contador << endl;
+        cout << VERDE << "Lectura numero: "<< contador << endl;
         Lectura* lectura_actual = lista_lecturas->obtener_dato_cursor();
         lectura_actual->mostrar_lectura();
 
@@ -399,7 +403,7 @@ void Menu::listar_lecturas_entre_anios(){
     int contador_lecturas = 0;
 
     if (desde > hasta)
-        cout << "\nAños inválidos, intente nuevamente\n" << endl;
+        cout << ROJO << "\nAños inválidos, intente nuevamente\n" << endl;
 
     else{
         lista_lecturas->inicializar();
@@ -417,19 +421,19 @@ void Menu::listar_lecturas_entre_anios(){
     }
 
     if(contador_lecturas == 0)
-        cout << "\nNo hay lecturas entre los anios ingresados\n" << endl;
+        cout << ROJO << "\nNo hay lecturas entre los anios ingresados\n" << endl;
 }
 
 int Menu::pedir_anio_desde(){
     int desde;
-    cout << "Ingrese el año DESDE el cual desea listar las lecturas: ";
+    cout << VERDE << "Ingrese el año DESDE el cual desea listar las lecturas: ";
     cin >> desde;
     return desde;
 }
 
 int Menu::pedir_anio_hasta(){
     int hasta;
-    cout << "Ingrese el año HASTA el cual desea listar las lecturas: ";
+    cout << VERDE << "Ingrese el año HASTA el cual desea listar las lecturas: ";
     cin >> hasta;
     cout << '\n';
 
@@ -441,7 +445,7 @@ void Menu::listar_por_escritor(){
     bool hay_lecturas = hay_lecturas_de_escritor(nombre_escritor);
 
     if (!hay_lecturas)
-        cout << "\nNo existen lecturas escritas por el Escritor ingresado, intente nuevamente\n" << endl;
+        cout << ROJO << "\n \t **** No existen lecturas escritas por el Escritor ingresado, intente nuevamente\n" << endl;
 }
 
 bool Menu::hay_lecturas_de_escritor(string nombre_escritor){
@@ -476,7 +480,8 @@ void Menu::listar_novelas_de_genero(){
 generos Menu::pedir_genero(){
     int genero;
 
-    cout << "Ingrese el genero de las novelas que desea listar (1.DRAMA / 2.COMEDIA / 3.FICCION / 4.SUSPENSO / 5.TERROR / 6.ROMANTICA / 7.HISTORICA): ";
+    cout << VERDE << "Ingrese el genero de las novelas que desea listar" << endl;
+    cout << AMARLLO << " (1.DRAMA / 2.COMEDIA / 3.FICCION / 4.SUSPENSO / 5.TERROR / 6.ROMANTICA / 7.HISTORICA): ";
     cin >> genero;
     cout << '\n';
 
@@ -550,23 +555,23 @@ void Menu::actualizar_cola(Lectura* lectura_eliminada){
 void Menu::marcar_como_leida(){
     char opcion;
 
-    cout << "Proxima lectura: " << endl;
+    cout << VERDE << "Proxima lectura: " << endl;
     Lectura* prox_lectura = cola_lecturas->consultar();
     prox_lectura -> mostrar_lectura();
 
-    cout << "\nDesea marcar la lectura de la cola como leida? (S.Si / N.No): ";
-    cin >> opcion;
+    cout << AZUL << "\nDesea marcar la lectura de la cola como leida?" << endl;
+    cout << VERDE << " (S.Si / N.No): ";    cin >> opcion;
 
     if (opcion == 's' || opcion == 'S'){
         if (cola_lecturas->vacia())
-            cout << "\nYa no quedan lecturas por ser leidas.\n" << endl;
+            cout << ROJO << "\nYa no quedan lecturas por ser leidas.\n" << endl;
         else {
             cola_lecturas->desencolar();
-            cout << "\nLectura leida con éxito.\n" << endl;
+            cout << AZUL << "\nLectura leida con éxito.\n" << endl;
         }
     }
     else
-        cout << "\nIngreso inválido, intente nuevamente.\n" << endl;
+        cout << ROJO << "\nIngreso inválido, intente nuevamente.\n" << endl;
 }
 
 void Menu::liberar_escritores(){
