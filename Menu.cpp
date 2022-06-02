@@ -573,7 +573,7 @@ void Menu::marcar_como_leida(){
     cout << VERDE << " (S.Si / N.No): ";
     cin >> opcion;
 
-    if (opcion == 's' || opcion == 'S'){
+    if (tolower(opcion) == 's'){
         if (cola_lecturas->vacia())
             cout << ROJO << "\nYa no quedan lecturas por ser leidas.\n" << endl;
         else {
