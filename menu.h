@@ -25,7 +25,7 @@ private:
     int opcion;
     Lista<Lectura*>* lista_lecturas;
     Lista<Escritor*>* lista_escritores;
-    Cola* cola_lecturas;
+    Cola<Lectura*>* cola_lecturas;
 
     //!Opcion 1
     //PRE: La lista_lecturas debe estar bien definida.
