@@ -118,10 +118,11 @@ void Lista_lecturas::listar_entre_anios(int desde, int hasta){
              }
             lista_lecturas.siguiente();
         }
+        if(contador_lecturas == 0)
+        cout << "\nNo hay lecturas entre los anios ingresados\n" << endl;
     }
 
-    if(contador_lecturas == 0)
-        cout << "\nNo hay lecturas entre los anios ingresados\n" << endl;
+    
 }
 
 void Lista_lecturas::listar_por_escritor(string nombre_escritor){
