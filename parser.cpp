@@ -133,7 +133,7 @@ generos Parser::obtener_genero(string genero) {
 }
 
 void Parser::almacenar_escritor(Escritor* escritor, Lista<Escritor*> *lista_escritores){
-    lista_escritores->alta_al_final(escritor);
+    lista_escritores->alta(escritor);
 }
 
 void Parser::almacenar_lectura(Lectura* lectura, Lista<Lectura*> *lista_lecturas){
