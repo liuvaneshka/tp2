@@ -49,67 +49,67 @@ bool Menu::selector_menu(){
     switch (this->opcion){
 
         case 1:
-            cout << VERDE << "caso 1: Agregar una nueva lectura"<< endl;
+            cout << VERDE << "Caso 1: Agregar una nueva lectura"<< endl;
             agregar_lectura();
             estado = true;
             break;
 
         case 2:
-            cout << VERDE << "caso 2: Quitar lectura" << endl;
+            cout << VERDE << "Caso 2: Quitar lectura" << endl;
             quitar_lectura();
             estado = true;
             break;
 
         case 3:
-            cout << VERDE << "caso 3: Agregar un escritor" << endl;
+            cout << VERDE << "Caso 3: Agregar un escritor" << endl;
             agregar_escritor();
             estado = true;
             break;
 
         case 4:
-            cout << VERDE << "caso 4: Actualizar fallecimiento autor" << endl;
+            cout << VERDE << "Caso 4: Actualizar fallecimiento autor" << endl;
             modificar_fallecimiento();
             estado = true;
             break;
 
         case 5:
-            cout << VERDE << "caso 5: Listar los escritores" << endl;
+            cout << VERDE << "Caso 5: Listar los escritores" << endl;
             listar_escritores();
             estado = true;
             break;
 
         case 6:
-            cout << VERDE << "caso 6: Sortear una lectura" << endl;
+            cout << VERDE << "Caso 6: Sortear una lectura" << endl;
             sortear_lectura();
             estado = true;
             break;
 
         case 7:
-            cout << VERDE << "caso 7: Listar lecturas" << endl;
+            cout << VERDE << "Caso 7: Listar lecturas" << endl;
             listar_lecturas();
             estado = true;
             break;
 
         case 8:
-            cout << VERDE << "caso 8: Listar lecturas por anio" << endl;
+            cout << VERDE << "Caso 8: Listar lecturas por anio" << endl;
             listar_lecturas_entre_anios();
             estado = true;
             break;
 
         case 9:
-            cout << VERDE << "caso 9: Listar lecturas por escritor" << endl;
+            cout << VERDE << "Caso 9: Listar lecturas por escritor" << endl;
             listar_por_escritor();
             estado = true;
             break;
 
         case 10:
-            cout << VERDE << "caso 10: Listar Novelas por genero" << endl;
+            cout << VERDE << "Caso 10: Listar Novelas por genero" << endl;
             listar_novelas_de_genero();
             estado = true;
             break;
 
         case 11:
-            cout << VERDE << "caso 11: Listar proximas lecturas" << endl;
+            cout << VERDE << "Caso 11: Listar proximas lecturas" << endl;
             proximas_lecturas();
             estado = true;
             break;
