@@ -3,8 +3,7 @@
 #include "nodo.h"
 #include "lectura.h"
 
-typedef Lectura* Dato;
-
+template <typename Dato>;
 class Cola{
 
 private:
@@ -37,4 +36,48 @@ public:
     // POST: Devuelve el dato del frente de la Cola.
     Dato consultar();
 };
+
+template <typename Dato>
+Cola::Cola(){
+    primero = nullptr;
+    ultimo = primero;
+}
+
+template <typename Dato>
+void Cola::encolar(Dato dato){
+    Nodo<Dato>* nuevo = new Nodo<Dato>(dato);
+    if (ultimo)
+        ultimo -> cambiar_siguiente(nuevo);
+    else
+        primero = nuevo;
+    ultimo = nuevo;
+}
+
+template <typename Dato>
+Dato Cola::desencolar(){
+    Nodo<Dato>* borrar = primero;
+    primero = primero -> obtener_siguiente();         // Si el primero quedo apuntando a null, entonces eliminé el ultimo elemento y ultimo tambien apunta a null
+    if (!primero)
+        ultimo = primero;
+    Dato desencolado = borrar->obtener_dato();
+    delete borrar;
+    borrar = nullptr;
+    return desencolado;
+}
+
+template <typename Dato>
+bool Cola::vacia(){
+    return primero == 0;
+}
+
+template <typename Dato>
+Dato Cola::consultar(){
+    return primero -> obtener_dato();
+}
+
+template <typename Dato>
+Cola::~Cola(){
+    while (! vacia())
+        desencolar();
+}
 #endif // __COLA_H__
