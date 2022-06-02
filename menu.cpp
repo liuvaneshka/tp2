@@ -5,7 +5,6 @@ Menu::Menu(){
     Parser parser;
     Lista <Escritor*> *lista_escritores = new Lista<Escritor*>;
     Lista <Lectura*> *lista_lecturas = new Lista<Lectura*>;
-    Cola* cola_lecturas = nullptr;
 
     this->lista_escritores = parser.procesar_escritor(ARCHIVO_ESCRITORES, lista_escritores);
     this->lista_lecturas = parser.procesar_lectura(ARCHIVO_LECTURAS, lista_lecturas, lista_escritores);
