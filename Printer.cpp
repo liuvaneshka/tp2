@@ -65,6 +65,12 @@ generos Printer::pedir_genero(){
     cout << "Ingrese el género de la novela" << endl;
     cout << AMARILLO << "(1.DRAMA / 2.COMEDIA / 3.FICCION / 4.SUSPENSO / 5.TERROR / 6.ROMANTICA / 7.HISTORICA): "<< endl;
     cin >> genero;
+    while(genero > 7 || genero < 1){
+        cout << ROJO << "Dato incorrecto! Ingrese un genero valido" << endl;
+        cout << AMARILLO << "(1.DRAMA / 2.COMEDIA / 3.FICCION / 4.SUSPENSO / 5.TERROR / 6.ROMANTICA / 7.HISTORICA): "<< endl;
+        cin.ignore();
+        cin >> genero;
+    }
     return (generos) genero;
 }
 
