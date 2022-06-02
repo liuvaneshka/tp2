@@ -16,6 +16,7 @@ Menu::Menu(){
 Menu::~Menu(){}
 
 void Menu::mostrar_menu(){
+    cout << endl;
     string opciones [] = {"Agregar una nueva lectura",
                           "Quitar lectura",
                           "Agregar un escritor",
@@ -38,7 +39,7 @@ void Menu::mostrar_menu(){
 
 void Menu::elegir_opcion(){
     string opcion;
-    cout <<  VIOLETA << "\n\t\tIngresar opcion: " << endl;
+    cout <<  VIOLETA << "\n\t\tIngresar opcion: ";
     cin >> opcion;
     this->opcion = atoi(opcion.c_str());
 }
