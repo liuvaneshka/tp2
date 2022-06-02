@@ -536,7 +536,7 @@ int Menu::obtener_posicion_segun_minutos(Lista<Lectura*>* lecturas_ordenadas, Le
 }
 
 void Menu::actualizar_cola(Lectura* lectura_eliminada){
-    Cola* cola_actualizada = new Cola<Lectura*>;
+    Cola<Lectura*>* cola_actualizada = new Cola<Lectura*>;
 
     while(!cola_lecturas->vacia()){
         Lectura* lectura_actual = cola_lecturas->desencolar();
