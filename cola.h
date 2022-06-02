@@ -38,13 +38,13 @@ public:
 };
 
 template <typename Dato>
-Cola::Cola(){
+Cola<Dato>::Cola(){
     primero = nullptr;
     ultimo = primero;
 }
 
 template <typename Dato>
-void Cola::encolar(Dato dato){
+void Cola<Dato>::encolar(Dato dato){
     Nodo<Dato>* nuevo = new Nodo<Dato>(dato);
     if (ultimo)
         ultimo -> cambiar_siguiente(nuevo);
@@ -54,7 +54,7 @@ void Cola::encolar(Dato dato){
 }
 
 template <typename Dato>
-Dato Cola::desencolar(){
+Dato Cola<Dato>::desencolar(){
     Nodo<Dato>* borrar = primero;
     primero = primero -> obtener_siguiente();         // Si el primero quedo apuntando a null, entonces eliminé el ultimo elemento y ultimo tambien apunta a null
     if (!primero)
@@ -66,17 +66,17 @@ Dato Cola::desencolar(){
 }
 
 template <typename Dato>
-bool Cola::vacia(){
+bool Cola<Dato>::vacia(){
     return primero == 0;
 }
 
 template <typename Dato>
-Dato Cola::consultar(){
+Dato Cola<Dato>::consultar(){
     return primero -> obtener_dato();
 }
 
 template <typename Dato>
-Cola::~Cola(){
+Cola<Dato>::~Cola(){
     while (! vacia())
         desencolar();
 }
