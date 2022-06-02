@@ -231,7 +231,8 @@ void Menu::quitar_lectura(){
             cout << ROJO << "\nLa lectura que desea eliminar no existe, intente nuevamente.\n" << endl;
         else{
             Lectura* eliminar = lista_lecturas->consultar(indice_a_eliminar);
-            actualizar_cola(eliminar);
+            if (cola_lectura && !cola_lectura->vacia())
+                actualizar_cola(eliminar);
             delete eliminar;                                     // Será correcto?? Intento eliminar el objeto Lectura que ingresó el usuario
             lista_lecturas->baja(indice_a_eliminar);                 // Acá al dar de baja se elimina el Nodo
             cout << AZUL << "\nLectura eliminada con éxito!\n" << endl;
