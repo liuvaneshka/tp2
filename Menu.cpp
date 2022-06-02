@@ -581,6 +581,8 @@ void Menu::marcar_como_leida(){
             cout << AZUL << "\nLectura leida con éxito.\n" << endl;
         }
     }
+    else if(tolower(opcion) == 'n')
+        cout << AZUL << "\nElija otra opcion del menu.\n" << endl;
     else
         cout << ROJO << "\nIngreso inválido, intente nuevamente.\n" << endl;
 }
