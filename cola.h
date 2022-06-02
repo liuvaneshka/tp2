@@ -3,7 +3,7 @@
 #include "nodo.h"
 #include "lectura.h"
 
-template <typename Dato>;
+template <typename Dato>
 class Cola{
 
 private:
