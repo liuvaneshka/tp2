@@ -1,0 +1,91 @@
+C
+Casa Tomada
+20
+1951
+Bestiario
+(1)
+
+N
+Rayuela
+2900
+1963
+FICCION
+(1)
+
+N
+Misery
+2100
+1987
+TERROR
+(3)
+
+P
+El Poema del Mío Cid
+480
+1140
+3733
+ANONIMO
+
+P
+Voy a dormir
+1
+1938
+14
+(4)
+
+N
+Frankestein
+1600
+1818
+TERROR
+(2)
+
+N
+Una columna de fuego
+4800
+2017
+HISTORICA
+Guerra de religiones en Europa en la segunda mitad del siglo XVI
+(5)
+
+C
+La noche de los dones
+2000
+1975
+El libro de arena
+(6)
+
+P
+Los amorosos
+2
+1949
+8
+(8)
+
+N
+Fahrenheit 451
+4000
+1953
+DRAMA
+(7)
+
+N
+Los miserables
+5000
+1862
+FICCION
+(9)
+
+C
+Finales felices
+2500
+1983
+Finales Felices
+(10)
+
+P
+La tumba y la rosa
+1
+1885
+4
+(9)
