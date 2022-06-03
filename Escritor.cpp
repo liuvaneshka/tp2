@@ -8,8 +8,7 @@ Escritor :: Escritor(string nombre_apellido, string nacionalidad, int anio_nacim
     this->anio_fallecimiento = anio_fallecimiento;
 }
 
-Escritor :: ~Escritor (){
-};
+Escritor :: ~Escritor(){};
 
 bool Escritor :: validar_entero_positivo(char anio){
     return (isdigit(anio) && int(anio) > 0);
