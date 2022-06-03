@@ -56,7 +56,7 @@ void Cola<Dato>::encolar(Dato dato){
 template <typename Dato>
 Dato Cola<Dato>::desencolar(){
     Nodo<Dato>* borrar = primero;
-    primero = primero -> obtener_siguiente();         // Si el primero quedo apuntando a null, entonces eliminé el ultimo elemento y ultimo tambien apunta a null
+    primero = primero -> obtener_siguiente();
     if (!primero)
         ultimo = primero;
     Dato desencolado = borrar->obtener_dato();
