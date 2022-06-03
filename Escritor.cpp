@@ -9,8 +9,6 @@ Escritor :: Escritor(string nombre_apellido, string nacionalidad, int anio_nacim
 }
 
 Escritor :: ~Escritor (){
-    cout << "*****Destructor escritor : " << endl;
-
 };
 
 bool Escritor :: validar_entero_positivo(char anio){
