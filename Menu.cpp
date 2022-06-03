@@ -201,7 +201,6 @@ Escritor* Menu::crear_escritor() {
     Escritor *escritor_hallado;
 
     string nombre = printer.pedir_nombre();
-    //escritor_hallado = rastrear_escritor(nombre);
     escritor_hallado = lista_escritores->rastrear(nombre);
 
     if (escritor_hallado) {
