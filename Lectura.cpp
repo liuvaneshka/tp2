@@ -6,10 +6,7 @@ Lectura::Lectura(string titulo, Escritor * escritor, int anio, int minutos){
     this->minutos = minutos;
     this->escritor = escritor;
 }
-Lectura::~Lectura(){
-    cout << "*****Destructor lectura: " << endl;
-
-}
+Lectura::~Lectura(){}
 
 int Lectura::obtener_anio() {
     return anio;
