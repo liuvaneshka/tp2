@@ -13,7 +13,7 @@ private:
 public:
 
     // PRE: -
-    // POST: Crea una cola vacía
+    // POST: Crea una cola vacía.
     Cola();
 
     // PRE: La cola debe ser un objeto válido.
