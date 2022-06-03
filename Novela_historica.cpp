@@ -8,7 +8,7 @@ Novela_historica::Novela_historica(string titulo, Escritor* escritor, int anio, 
 }
 
 Novela_historica::~Novela_historica(){
-    delete[] tema;    //LYa se libera pero no se si al modifcar el destructor de novela
+    delete[] tema;
 }
 
 char* Novela_historica::obtener_tema(){
@@ -71,14 +71,6 @@ void Novela_historica::mostrar_lectura(){
         cout << "Tema desconocido" << endl;
     else
         cout << "Tema: " << tema << '\n' << endl;
-    /*else{
-        int i = 0;
-        while(tema[i] != '\0'){
-            cout << tema[i] ;
-            i++;
-        }
-        cout << endl;
-    }*/
 }
 
 void Novela_historica::imprimir_novela_genero(generos genero){
