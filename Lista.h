@@ -10,8 +10,8 @@ private:
     Nodo<Dato>* cursor;
     int tamanio;
 
-    //PRE:
-    //POST:
+    //PRE: el nodo debe contener un dato valido
+    //POST: devuelve el nodo que ocupa en lista la posicion ingresada
     Nodo<Dato>* obtener_nodo(int posicion);
 
 public:
