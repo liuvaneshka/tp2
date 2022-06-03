@@ -4,7 +4,6 @@
 // Clases generales
 #include "Escritor.h"
 #include "Lectura.h"
-#include "Lista.h"
 #include "CONSTANTES.h"
 // Subclases
 #include "Novela.h"
@@ -18,7 +17,8 @@
 #include "Cola.h"
 //Para pedir datos al usuario
 #include "Printer.h"
-
+//Para las listas
+#include "Lista.h"
 #include "Lista_escritores.h"
 #include "Lista_lecturas.h"
 
