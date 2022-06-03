@@ -6,9 +6,8 @@ Lista_escritores::Lista_escritores(){
 Lista_escritores::~Lista_escritores(){
     while(!lista_escritores.vacia()){
         Escritor* eliminar = lista_escritores.consultar(1);
-        delete eliminar;          // Elimino objeto Escritor
-
-        lista_escritores.baja(1);   // Se elimina el Nodo
+        delete eliminar;
+        lista_escritores.baja(1);
     }
 }
 
