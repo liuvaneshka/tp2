@@ -33,7 +33,6 @@ public:
 
 };
 
-////////////////////////////////////////////////
 
 template <typename Dato>
 Nodo<Dato>::Nodo(Dato dato){
