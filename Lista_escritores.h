@@ -22,9 +22,9 @@ public:
     //POS: Agrega el escritor al final de la lista
     void alta(Escritor* nuevo_escritor);
 
-    //PRE: La lista no puede estar vacía. 1 <= pos <= obtener_cantidad()        // obtener_tamanio() ??
+    //PRE: La lista no puede estar vacía. 1 <= pos <= obtener_tamanio()
     //POS: Elimina el escritor ubicado en la posicion indicada
-    void baja(int posicion);                                             // el IDE dice que nunca se usa
+    void baja(int posicion);
 
     //PRE: La lista no debe estar vacía
     //POS: Devueve el escritor ubicado en la posicion indicada
