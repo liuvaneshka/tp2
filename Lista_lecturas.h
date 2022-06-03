@@ -42,7 +42,7 @@ public:
     //POST: Agrega la lectura al final de la lista.
     void alta(Lectura* lectura);
 
-    //PRE: La lista no puede estar vacía. 1 <= pos <= obtener_cantidad().       // obtener_tamanio() ??
+    //PRE: La lista no puede estar vacía. 1 <= pos <= obtener_tamanio()
     //POST: Elimina el dato que se encuentra en la posicion indicada.
     void baja(int posicion);
 
@@ -74,7 +74,7 @@ public:
 
     //PRE: lista_lecturas.vacia() = false, tienen que ser anios validos
     //POS: Muestra la informacion de las lecturas publicados entre dos anios particulares (siempre que pertenezcan a la lista)
-    void listar_entre_anios(int desde, int hasta);      // meti el if del contador adentro del else
+    void listar_entre_anios(int desde, int hasta);
 
     //PRE: lista_lecturas.vacia() = false
     //POS: Muestra la informacion de las lecturas escritos por un escritor en particular (siempre que pertenezcan a la lista)
