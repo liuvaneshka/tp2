@@ -10,8 +10,8 @@ private:
     Nodo<Dato>* cursor;
     int tamanio;
 
-    //PRE: el nodo debe contener un dato valido
-    //POST: devuelve el nodo que ocupa en lista la posicion ingresada
+    //PRE: El nodo debe contener un dato valido.
+    //POST: Devuelve el nodo que ocupa en lista la posicion ingresada.
     Nodo<Dato>* obtener_nodo(int posicion);
 
 public:
@@ -69,7 +69,7 @@ public:
     bool hay_actual();
 };
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 template <typename Dato>
 Lista <Dato>::Lista(){
     primero = 0;
