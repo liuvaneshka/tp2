@@ -6,9 +6,8 @@ Lista_lecturas::Lista_lecturas(){
 Lista_lecturas::~Lista_lecturas(){
     while(!lista_lecturas.vacia()){
         Lectura* eliminar = lista_lecturas.consultar(1);
-        delete eliminar;          // Elimino objeto Escritor
-
-        lista_lecturas.baja(1);   // Se elimina el Nodo
+        delete eliminar;
+        lista_lecturas.baja(1);
     }
 }
 
