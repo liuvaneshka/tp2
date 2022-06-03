@@ -13,7 +13,7 @@ private:
     int anio_fallecimiento;
 
     //PRE: anio > 0.
-    //POST: devuelve true si es anio es un entero positivo, false en caso contrario.
+    //POST: Devuelve true si es anio es un entero positivo, false en caso contrario.
     bool validar_entero_positivo(char anio);
 
 public:
@@ -39,7 +39,7 @@ public:
     int obtener_anio_nacimiento();
 
     //PRE: El objeto Escritor debe ser un objeto válido.
-    //POST: devuelve el año de fallecimiento del escritor.
+    //POST: Devuelve el año de fallecimiento del escritor.
     int obtener_anio_fallecimiento();
 
     //PRE:fallecimiento > 0 y fallecimiento > anio_nacimiento.
