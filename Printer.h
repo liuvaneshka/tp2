@@ -39,12 +39,7 @@ public:
     //PRE: ingresar un numero
     //POS: le solicita al usuario que ingrese un numero del 1 al 7, a cada numero le corresponde un genero de novela que
     //      será procesado
-    generos pedir_genero();     // VER EL ARREGLO EN PRINTER.CPP
-    /*
-    //PRE:
-    //POS:
-    generos pedir_genero_listar();
-     */
+    generos pedir_genero();
     //PRE: -
     //POS: le solicita al usuario que ingrese un tema de una novela histórica para ser procesado
     string pedir_tema();
@@ -65,12 +60,7 @@ public:
     //POS: le solicita al usuario que ingrese el anio de fallecimiento del escritor en cuestion para ser procesado, si se
     //     desconoce se pide ingresar un -1
     int pedir_fallecimiento();
-    /*
-    //PRE:
-    //POS: le solicita al usuario ingresar el nuevo anio de fallecimiento del escritor en cuestion para ser procesado,
-    //     si se desconoce se pide ingresar un -1
-    int pedir_nuevo_fallecimiento();
-     */
+    
     //PRE: -
     //POS: le solicita al usuario que ingrese el anio desde el cual se buscaran ciertas lecturas
     int pedir_anio_desde();
