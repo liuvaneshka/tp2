@@ -15,7 +15,7 @@ void Archivo :: abrir_archivo(string ruta){
 
     if(this->abierto){
         archivo.open(ruta);
-        cout << "Exito al abrir el archivo" << endl;
+        cout << "Exito al abrir el archivo" << ruta << endl;
         abierto = true;
     }
 
