@@ -1,7 +1,7 @@
 #include "Archivo.h"
 
 using namespace std;
-holaaaaaa
+
 Archivo :: Archivo(string ruta){
     this->abierto = true;
     abrir_archivo(ruta);
