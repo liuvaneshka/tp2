@@ -32,7 +32,7 @@ public:
     //POST: Agrega el dato al final de la lista.
     void alta(Dato dato);
 
-    //PRE: La lista no puede estar vacía. 1 <= pos <= obtener_cantidad().       // 1 <= pos <= obtener_tamanio() + 1 ??
+    //PRE: La lista no puede estar vacía. 1 <= pos <= obtener_tamanio() + 1
     //POST: Elimina el dato que se encuentra en la posicion indicada.
     void baja(int posicion);
 
@@ -129,8 +129,6 @@ void Lista <Dato>::baja(int posicion){
 template <typename Dato>
 Dato Lista <Dato>::consultar(int posicion){
     Nodo<Dato>* aux = obtener_nodo(posicion);
-    //std::cout << "Encuentro el nodo " << aux << std::endl;
-    //std::cout << "Encuentro el dato al consultar " << aux -> obtener_dato() << std::endl;
     return aux -> obtener_dato();
 }
 
@@ -150,11 +148,9 @@ Lista <Dato>::~Lista(){
         baja(1);
 }
 
-// VERIFICAR ESTAS 3 FUNCIONES !!! ////////////////////
 template <typename Dato>
 void Lista <Dato>::inicializar(){
     cursor = primero;
-    //std::cout << "primero: " << primero << std::endl;
 }
 
 
