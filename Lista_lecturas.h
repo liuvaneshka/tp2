@@ -65,8 +65,12 @@ public:
     void sortear();
 
     //PRE: lista_lecturas.vacia() = false
-    //POS: Muestra la informacion de las lecturas que pertenecen a la lista
+    //POS: Muestra el titulo de las lecturas
     void listar();
+
+    //PRE: lista_lecturas.vacia() = false
+    //POS: Muestra la informacion de las lecturas que pertenecen a la lista
+    void listar_titulos_lecturas();
 
     //PRE: lista_lecturas.vacia() = false, tienen que ser anios validos
     //POS: Muestra la informacion de las lecturas publicados entre dos anios particulares (siempre que pertenezcan a la lista)

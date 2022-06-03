@@ -38,6 +38,20 @@ void Lista_escritores::listar(){
     }
 }
 
+void Lista_escritores::listar_nombres_escritores(){
+    int contador = 1;
+    lista_escritores.inicializar();
+
+    while(lista_escritores.hay_actual()){
+        Escritor* escritor_actual = lista_escritores.obtener_dato_cursor();
+        cout << VIOLETA << escritor_actual->obtener_nombre() << " ** ";
+
+        lista_escritores.siguiente();
+        contador++;
+    }
+    cout << endl;
+}
+
 Escritor* Lista_escritores::rastrear(string nombre_escritor){
     int indice = 1;
     Escritor* escritor_buscado = nullptr;

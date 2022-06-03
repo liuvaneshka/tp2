@@ -9,7 +9,6 @@ Novela_historica::Novela_historica(string titulo, Escritor* escritor, int anio, 
 
 Novela_historica::~Novela_historica(){
     delete[] tema;    //LYa se libera pero no se si al modifcar el destructor de novela
-    cout << "*****Destructor historica: " << endl;
 }
 
 char* Novela_historica::obtener_tema(){

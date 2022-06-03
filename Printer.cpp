@@ -15,13 +15,6 @@ string Printer::pedir_titulo(){
     return titulo;
 }
 
-string Printer::pedir_titulo_eliminar(){
-    string titulo_lectura;
-    cout << ROJO << "Ingrese el titulo de la lectura que desea eliminar: ";
-    cin.ignore();
-    getline(cin, titulo_lectura);
-    return titulo_lectura;
-}
 
 int Printer::pedir_anio(){
     int anio;
@@ -74,16 +67,6 @@ generos Printer::pedir_genero(){
     return (generos) genero;
 }
 
-generos Printer::pedir_genero_listar(){
-    int genero;
-
-    cout << VERDE << "Ingrese el genero de las novelas que desea listar" << endl;
-    cout << AMARILLO << " (1.DRAMA / 2.COMEDIA / 3.FICCION / 4.SUSPENSO / 5.TERROR / 6.ROMANTICA / 7.HISTORICA): ";
-    cin >> genero;
-    cout << '\n';
-
-    return (generos) genero;
-}
 
 string Printer::pedir_tema(){
     string tema;
@@ -123,13 +106,6 @@ int Printer::pedir_fallecimiento(){
     cout << VERDE << "(si es desconocida o continua vivo, ingerse -1): ";
     cin >> fallecimiento;
     return fallecimiento;
-}
-
-int Printer::pedir_nuevo_fallecimiento(){
-    int nuevo_fallecimiento;
-    cout << VERDE << "Ingrese el nuevo año de fallecimiento: ";
-    cin >> nuevo_fallecimiento;
-    return nuevo_fallecimiento;
 }
 
 int Printer::pedir_anio_desde(){

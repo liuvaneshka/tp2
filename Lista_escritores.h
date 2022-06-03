@@ -38,6 +38,10 @@ public:
     //POS: Muestra la informacion de los escritores que pertenecen a la lista
     void listar();
 
+    //PRE: lista_lecturas.vacia() = false
+    //POS: Muestra la informacion de las lecturas que pertenecen a la lista
+    void listar_nombres_escritores();
+
     //PRE: El escritor hallado debe ser un objeto valido
     //POS: Devuelve el escritor cuyo nombre se busca en la lista
     Escritor* rastrear(string nombre_escritor);

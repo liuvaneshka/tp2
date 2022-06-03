@@ -46,12 +46,16 @@ bool Menu::selector_menu(){
 
         case 2:
             cout << VERDE << "Caso 2: Quitar lectura" << endl;
+            cout << NEGRO << "Lecturas Exitentes: " << endl;
+            lista_lecturas->listar_titulos_lecturas();
             quitar_lectura();
             estado = true;
             break;
 
         case 3:
             cout << VERDE << "Caso 3: Agregar un escritor" << endl;
+            cout << NEGRO << "Escritores Exitentes: " << endl;
+            lista_escritores->listar_nombres_escritores();
             agregar_escritor();
             estado = true;
             break;
@@ -186,6 +190,8 @@ void Menu::almacenar_lectura(Lectura* lectura){
 
 void Menu::quitar_lectura(){
 
+
+
     if (lista_lecturas->vacia())
         cout << ROJO << "\n No se puede eliminar ninguna lectura, la lista de lecturas está vacía\n" << endl;
 
@@ -259,7 +265,7 @@ void Menu::modificar_fallecimiento(){
     string nombre_escritor = printer.pedir_nombre();
     //Escritor* escritor_a_modificar = rastrear_escritor(nombre_escritor);
     Escritor* escritor_a_modificar = lista_escritores->rastrear(nombre_escritor);
-    int nuevo_fallecimiento = printer.pedir_nuevo_fallecimiento();
+    int nuevo_fallecimiento = printer.pedir_fallecimiento();
 
     if (escritor_a_modificar == nullptr)
         cout << ROJO << "\nNo se encuentra el escritor que desea modificar, intente nuevamente.\n" << endl;

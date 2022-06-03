@@ -100,6 +100,21 @@ void Lista_lecturas::listar(){
     }
 }
 
+void Lista_lecturas::listar_titulos_lecturas(){
+    int contador = 1;
+    lista_lecturas.inicializar();
+
+    while(lista_lecturas.hay_actual()){
+        string titulo;
+        Lectura* lectura_actual = lista_lecturas.obtener_dato_cursor();
+        cout << VIOLETA << lectura_actual->obtener_titulo() << "  **  ";
+
+        lista_lecturas.siguiente();
+        contador++;
+    }
+    cout << endl;
+}
+
 void Lista_lecturas::listar_entre_anios(int desde, int hasta){
     int contador_lecturas = 0;
 
