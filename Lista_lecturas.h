@@ -27,7 +27,7 @@ public:
     void inicializar();
 
     //PRE: El objeto Nodo debe ser un objeto válido.
-    //POST: devuelve true si cursor está en un nodo, false si es nullptr.
+    //POST: Devuelve true si cursor está en un nodo, false si es nullptr.
     bool hay_actual();
 
     //PRE: El objeto Lista de Lecturas debe ser un objeto válido.
@@ -54,13 +54,12 @@ public:
     //POST: Devuelve la Lectura que se encuentra en la posicion.
     Lectura* consultar(int posicion);
 
-
     //PRE: -
     //POS: Devuelve el indice (numero entero) de la lista de la lectura que se quiere rastrear
     int rastrear(string titulo);
 
     //PRE: -
-    //POS: sortea un numero (1 <= num_random <= obtener_tamanio()) e imprime los datos de la lectura cuyo indice es el
+    //POS: Sortea un numero (1 <= num_random <= obtener_tamanio()) e imprime los datos de la lectura cuyo indice es el
     //      numero sorteado
     void sortear();
 
