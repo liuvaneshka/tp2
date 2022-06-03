@@ -32,7 +32,7 @@ public:
     //POST: Agrega el dato al final de la lista.
     void alta(Dato dato);
 
-    //PRE: La lista no puede estar vacía. 1 <= pos <= obtener_cantidad().
+    //PRE: La lista no puede estar vacía. 1 <= pos <= obtener_cantidad().       // 1 <= pos <= obtener_tamanio() + 1 ??
     //POST: Elimina el dato que se encuentra en la posicion indicada.
     void baja(int posicion);
 
