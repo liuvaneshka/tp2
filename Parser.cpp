@@ -106,7 +106,7 @@ Lista_lecturas* Parser::procesar_lectura(string ruta, Lista_lecturas *lista_lect
             }
         }
     }
-    entrada.cerrar_archivo(); // Probar si es necesario esto o si funciona con el destructor de Archivo
+    entrada.cerrar_archivo();
     return lista_lecturas;
 }
 
