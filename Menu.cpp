@@ -15,10 +15,6 @@ Menu::Menu(){
 
 Menu::~Menu(){
     delete lista_escritores;
-    //delete lista_lecturas;
-    //if (cola_lecturas)
-    //    cola_lecturas;
-    //liberar_escritores();
     delete lista_lecturas;
     if (cola_lecturas)
         delete cola_lecturas;
@@ -170,27 +166,10 @@ Lectura* Menu::crear_lectura(){
 }
 
 void Menu::almacenar_lectura(Lectura* lectura){
-    //int posicion_correcta = obtener_posicion_segun_anio(lectura);
     lista_lecturas->alta(lectura);
 }
 
-/*int Menu::obtener_posicion_segun_anio(Lectura* lectura){
-    int indice = 1;
-
-    if (!lista_lecturas->vacia()){
-        lista_lecturas->inicializar();
-
-        while(lista_lecturas->hay_actual() && lectura->comparar_lecturas(lista_lecturas->consultar(indice)) != -1){
-            indice++;
-            lista_lecturas->siguiente();
-        }
-    }
-    return indice;
-}*/
-
 void Menu::quitar_lectura(){
-
-
 
     if (lista_lecturas->vacia())
         cout << ROJO << "\n No se puede eliminar ninguna lectura, la lista de lecturas está vacía\n" << endl;
@@ -210,22 +189,6 @@ void Menu::quitar_lectura(){
         }
     }
 }
-
-/*int Menu::rastrear_lectura(string titulo_lectura){
-
-    int indice = 1, indice_correspondiente = -1;
-
-    lista_lecturas->inicializar();
-    while(lista_lecturas->hay_actual() && lista_lecturas->consultar(indice)->obtener_titulo() != titulo_lectura){
-        indice++;
-        lista_lecturas->siguiente();
-    }
-
-    if(lista_lecturas->hay_actual())
-        indice_correspondiente = indice;
-
-    return indice_correspondiente;
-}*/
 
 void Menu::agregar_escritor(){
     Escritor* nuevo_escritor = crear_escritor();
@@ -263,7 +226,6 @@ void Menu::almacenar_escritor(Escritor* escritor){
 
 void Menu::modificar_fallecimiento(){
     string nombre_escritor = printer.pedir_nombre();
-    //Escritor* escritor_a_modificar = rastrear_escritor(nombre_escritor);
     Escritor* escritor_a_modificar = lista_escritores->rastrear(nombre_escritor);
     int nuevo_fallecimiento = printer.pedir_fallecimiento();
 
@@ -278,124 +240,20 @@ void Menu::modificar_fallecimiento(){
         cout << ROJO <<  "\nEl año de fallecimiento ingresado es inválido, intente nuevamente.\n" << endl;
 }
 
-/*Escritor* Menu::rastrear_escritor(string nombre_escritor){
-    int indice = 1;
-    Escritor* escritor_buscado = nullptr;
-
-    lista_escritores->inicializar();
-    while(lista_escritores->hay_actual() && lista_escritores -> consultar(indice) -> obtener_nombre() != nombre_escritor){
-        indice++;
-        lista_escritores->siguiente();
-    }
-    if (lista_escritores->hay_actual())
-        escritor_buscado = lista_escritores -> consultar(indice);
-
-    return escritor_buscado;
-}*/
-
-/*void Menu::listar_escritores(){
-    int contador = 1;
-    lista_escritores->inicializar();
-
-    while(lista_escritores->hay_actual()){
-        cout << VERDE << "Escritor numero: " << contador << endl;
-        Escritor* escritor_actual = lista_escritores->obtener_dato_cursor();
-        escritor_actual -> mostrar_escritor();
-
-        lista_escritores->siguiente();
-        contador++;
-    }
-}*/
-
-/*void Menu::sortear_lectura(){
-    int num_random = rand() % lista_lecturas->obtener_tamanio() + 1;
-    cout << VIOLETA << "numero random elegido: " << num_random << endl;
-
-    Lectura* lectura_random = lista_lecturas->consultar(num_random);
-
-    cout << AZUL << "Lectura sorteada: " << endl;
-    lectura_random->mostrar_lectura();
-}*/
-
-/*void Menu::listar_lecturas(){
-    int contador = 1;
-    lista_lecturas->inicializar();
-
-    while(lista_lecturas->hay_actual()){
-        cout << VERDE << "Lectura numero: "<< contador << endl;
-        Lectura* lectura_actual = lista_lecturas->obtener_dato_cursor();
-        lectura_actual->mostrar_lectura();
-
-        lista_lecturas->siguiente();
-        contador++;
-    }
-}*/
-
 void Menu::listar_lecturas_entre_anios(){
     int desde = printer.pedir_anio_desde();
     int hasta = printer.pedir_anio_hasta();
     lista_lecturas->listar_entre_anios(desde, hasta);
-    /*int contador_lecturas = 0;
-
-    if (desde > hasta)
-        cout << ROJO << "\nAños inválidos, intente nuevamente\n" << endl;
-
-    else{
-        lista_lecturas->inicializar();
-        while(lista_lecturas->hay_actual()){
-            Lectura* lectura_actual = lista_lecturas->obtener_dato_cursor();
-            int anio_lectura_actual = lectura_actual->obtener_anio();
-
-            if (anio_lectura_actual >= desde && anio_lectura_actual <= hasta){
-                lectura_actual->mostrar_lectura();
-                contador_lecturas++;
-             }
-
-            lista_lecturas->siguiente();
-        }
-    }
-
-    if(contador_lecturas == 0)
-        cout << ROJO << "\nNo hay lecturas entre los anios ingresados\n" << endl;*/
 }
 
 void Menu::listar_por_escritor(){
     string nombre_escritor = printer.pedir_nombre();
     lista_lecturas->listar_por_escritor(nombre_escritor);
-    /*bool hay_lecturas = hay_lecturas_de_escritor(nombre_escritor);
-
-    if (!hay_lecturas)
-        cout << ROJO << "\n \t **** No existen lecturas escritas por el Escritor ingresado, intente nuevamente\n" << endl;
-}
-
-bool Menu::hay_lecturas_de_escritor(string nombre_escritor){
-    bool hay_lecturas = false;
-
-    lista_lecturas->inicializar();
-    while(lista_lecturas->hay_actual()){
-        Lectura* lectura_actual = lista_lecturas->obtener_dato_cursor();
-        Escritor* escritor_actual = lectura_actual->obtener_escritor();
-
-        if (escritor_actual != nullptr && escritor_actual->obtener_nombre() == nombre_escritor){
-            hay_lecturas = true;
-            cout << '\n';
-            lectura_actual->mostrar_lectura();
-        }
-        lista_lecturas->siguiente();
-    }
-    return hay_lecturas;*/
 }
 
 void Menu::listar_novelas_de_genero(){
     generos genero = printer.pedir_genero();
     lista_lecturas->listar_por_genero(genero);
-
-    /*lista_lecturas->inicializar();
-    while(lista_lecturas->hay_actual()){
-        Lectura* lectura_actual = lista_lecturas->obtener_dato_cursor();
-        lectura_actual->imprimir_novela_genero(genero);
-        lista_lecturas->siguiente();
-    }*/
 }
 
 void Menu::proximas_lecturas(){
@@ -423,7 +281,7 @@ void Menu::cola_de_lecturas(){
         cola_lecturas->encolar(lectura_actual);
         lecturas_ordenadas->siguiente();
     }
-    delete lecturas_ordenadas;      // Elimino la lista aux creada con el new, no los objetos de adentro
+    delete lecturas_ordenadas;
 }
 
 Lista<Lectura*>* Menu::ordenar_por_minutos(){
@@ -493,23 +351,3 @@ void Menu::marcar_como_leida(){
     else
         cout << ROJO << "\nIngreso inválido, intente nuevamente.\n" << endl;
 }
-
-/*void Menu::liberar_escritores(){
-    while(!lista_escritores->vacia()){
-        Escritor* eliminar = lista_escritores->consultar(1);
-        delete eliminar;          // Elimino objeto Escritor
-
-        lista_escritores->baja(1);   // Se elimina el Nodo
-    }
-    delete lista_escritores;
-}
-
-void Menu::liberar_lecturas(){
-    while(!lista_lecturas->vacia()){
-        Lectura* eliminar = lista_lecturas->consultar(1);
-        delete eliminar;          // Elimino objeto Lectura
-
-        lista_lecturas->baja(1);   // Se elimina el Nodo
-    }
-    delete lista_lecturas;
-}*/
