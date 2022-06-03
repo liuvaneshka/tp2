@@ -21,37 +21,37 @@ public:
 
     //PRE: -
     //POST: Constructor sin parámetros para el template de Lista<Lectura*>.
-    Lectura();  // TEMPLATE!!!
+    Lectura();
 
     //PRE: El objeto Lectura es un objeto válido.
     //POST: Destruye la Lectura (destructor virtual).
     virtual ~Lectura() = 0;
 
     //PRE: El objeto Lectura es un objeto válido.
-    //POST: método virtual, definido en cada subclase.
+    //POST: Método virtual, definido en cada subclase.
     virtual void imprimir_novela_genero(generos genero) = 0;
 
     //PRE: El objeto Lectura es un objeto válido.
-    //POST: método virtual que imprime los atributos de la Lectura (polimorfismo).
+    //POST: Método virtual que imprime los atributos de la Lectura (polimorfismo).
     virtual void mostrar_lectura() = 0;
 
     //PRE: El objeto Lectura es un objeto válido.
-    //POST: devuelve el titulo de la Lectura.
+    //POST: Devuelve el titulo de la Lectura.
     string obtener_titulo();
 
     //PRE: El objeto Lectura es un objeto válido.
-    //POST: devuelve los minutos de la Lectura.
+    //POST: Devuelve los minutos de la Lectura.
     int obtener_minutos();
 
     //PRE: El objeto Lectura es un objeto válido.
-    //POST: devuelve el año de publicación de la Lectura.
+    //POST: Devuelve el año de publicación de la Lectura.
     int obtener_anio();
 
     //PRE: El objeto Lectura es un objeto válido.
     //POST: Devuelve el escritor de la Lectura.
     Escritor *obtener_escritor();
 
-    //PRE: lectura es un objeto válido.
+    //PRE: Lectura es un objeto válido.
     /*POST: Devuelve -1 si la Lectura que llama posee un año de publicación anterior a la del parámetro.
             Devuelve 0 si las Lecturas poseen el mismo año de publicación.
             Devuelve 1 si la Lectura que llama posee un año de publicación posterior a la del parámetro. */
