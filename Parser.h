@@ -15,7 +15,7 @@
 using namespace std;
 
 class Parser{
-
+    Archivo entrada(string ruta);
 private:
 
     //PRE: linea_genero es una linea leida del archivo de Lecturas.

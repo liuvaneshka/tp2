@@ -43,7 +43,6 @@ bool Menu::selector_menu(){
         case 2:
             cout << VERDE << "Caso 2: Quitar lectura" << endl;
             cout << NEGRO << "Lecturas Exitentes: " << endl;
-            lista_lecturas->listar_titulos_lecturas();
             quitar_lectura();
             estado = true;
             break;
@@ -58,6 +57,7 @@ bool Menu::selector_menu(){
 
         case 4:
             cout << VERDE << "Caso 4: Actualizar fallecimiento autor" << endl;
+            lista_escritores->listar_nombres_escritores();
             modificar_fallecimiento();
             estado = true;
             break;
@@ -88,6 +88,7 @@ bool Menu::selector_menu(){
 
         case 9:
             cout << VERDE << "Caso 9: Listar lecturas por escritor" << endl;
+            lista_escritores->listar_nombres_escritores();
             listar_por_escritor();
             estado = true;
             break;
@@ -175,6 +176,7 @@ void Menu::quitar_lectura(){
         cout << ROJO << "\n No se puede eliminar ninguna lectura, la lista de lecturas está vacía\n" << endl;
 
     else {
+        lista_lecturas->listar_titulos_lecturas();
         string titulo_lectura = printer.pedir_titulo();
         int indice_a_eliminar = lista_lecturas->rastrear(titulo_lectura);
 

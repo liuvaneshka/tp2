@@ -21,7 +21,7 @@ public:
     Archivo(string ruta);
 
     //PRE: El objeto Archivo es un objeto válido.
-    //POST: Destruye el archivo.
+    //POST: destruye el archivo.
     ~Archivo();
 
     //PRE: El objeto Archivo es un objeto válido.
@@ -37,7 +37,7 @@ public:
     bool esta_abierto();
 
     //PRE: El objeto Archivo es un objeto válido y el mismo debe estar abierto.
-    //POST: Si se llegó al final del archivo devuelve true, de lo contrario false
+    //POST: Si se llegó al final del archivo devuelve true, de lo contraro false
     bool final_archivo();
 
     //PRE: El objeto Archivo es un objeto válido y el mismo debe estar abierto.
