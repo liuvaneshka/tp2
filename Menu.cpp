@@ -2,11 +2,12 @@
 #include "Parser.h"
 
 Menu::Menu(){
-    Parser parser;
+
     Lista_escritores *lista_escritores = new Lista_escritores;
     Lista_lecturas *lista_lecturas = new Lista_lecturas;
     cola_lecturas = nullptr;
 
+    Parser parser;
     this->lista_escritores = parser.procesar_escritor(ARCHIVO_ESCRITORES, lista_escritores);
     this->lista_lecturas = parser.procesar_lectura(ARCHIVO_LECTURAS, lista_lecturas, lista_escritores);
 
@@ -119,7 +120,7 @@ bool Menu::selector_menu(){
 
 void Menu::agregar_lectura(){
     Lectura* nueva_lectura = crear_lectura();
-    almacenar_lectura(nueva_lectura);
+    lista_lecturas->alta(nueva_lectura);
 
     cout << "\nLectura creada: " << endl;
     nueva_lectura->mostrar_lectura();
@@ -166,14 +167,10 @@ Lectura* Menu::crear_lectura(){
     return nueva_lectura;
 }
 
-void Menu::almacenar_lectura(Lectura* lectura){
-    lista_lecturas->alta(lectura);
-}
-
 void Menu::quitar_lectura(){
 
     if (lista_lecturas->vacia())
-        cout << ROJO << "\n No se puede eliminar ninguna lectura, la lista de lecturas está vacía\n" << endl;
+        cout << ROJO << "\n No se puede eliminar ninguna lectura, la lista de lecturas está vacía.\n" << endl;
 
     else {
         lista_lecturas->listar_titulos_lecturas();
@@ -215,14 +212,10 @@ Escritor* Menu::crear_escritor() {
         int fallecimiento = printer.pedir_fallecimiento();
 
         nuevo_escritor = new Escritor(nombre, nacionalidad, nacimiento, fallecimiento);
-        almacenar_escritor(nuevo_escritor);
+        lista_escritores->alta(nuevo_escritor);
     }
 
     return nuevo_escritor;
-}
-
-void Menu::almacenar_escritor(Escritor* escritor){
-    lista_escritores->alta(escritor);
 }
 
 void Menu::modificar_fallecimiento(){
