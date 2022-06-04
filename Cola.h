@@ -1,7 +1,6 @@
 #ifndef __COLA_H__
 #define __COLA_H__
 #include "Nodo.h"
-#include "Lectura.h"
 
 template <typename Dato>
 class Cola{
