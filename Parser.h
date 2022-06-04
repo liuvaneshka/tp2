@@ -1,13 +1,13 @@
 #ifndef __PARSER_H__
 #define __PARSER_H__
-#include "Lista.h"
+
 #include "Lectura.h"
 #include "Escritor.h"
-#include "Archivo.h"
 #include "Novela.h"
 #include "Novela_historica.h"
 #include "Cuento.h"
 #include "Poema.h"
+#include "Archivo.h"
 #include "Lista_escritores.h"
 #include "Lista_lecturas.h"
 
@@ -15,8 +15,10 @@
 using namespace std;
 
 class Parser{
-    Archivo entrada(string ruta);
+
 private:
+    
+    Archivo entrada(string ruta);
 
     //PRE: linea_genero es una linea leida del archivo de Lecturas.
     //POST: Devuelve el genero del enumerado asociado.
