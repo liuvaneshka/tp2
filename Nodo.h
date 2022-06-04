@@ -1,6 +1,5 @@
 #ifndef __NODO_H__
 #define __NODO_H__
-#include <iostream>
 
 template <typename Dato>
 class Nodo{
