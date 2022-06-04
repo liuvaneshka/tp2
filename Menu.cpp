@@ -260,7 +260,6 @@ void Menu::listar_novelas_de_genero(){
 void Menu::proximas_lecturas(){
 
     if (!cola_lecturas){
-        cout << "***** no hay colas: " << endl;
         cola_de_lecturas();
     }
 
