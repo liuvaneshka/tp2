@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-// Programa
+//Programa
 enum generos {DRAMA = 1, COMEDIA, FICCION, SUSPENSO,
               TERROR, ROMANTICA, HISTORICA};
 
@@ -34,7 +34,7 @@ const string OPCIONES [] = {"Agregar una nueva lectura",
 
 const int CANT_OPCIONES = 12;
 
-//colores
+//Colores
 const string NEGRO = "\e[1;30m";
 const string ROJO = "\e[1;31m";
 const string AZUL = "\e[1;34m";
